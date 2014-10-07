@@ -1,0 +1,51 @@
+{! This is a header file, which gets included inside of base.tmpl, so that every template which includes base
+   will also include this header. !}
+<header>
+<a title="Home" href="javascript:switchAccess('home','init');"><img src="http://www.wiley.com/college/webprod/responsive/images/home_icon.png" id="homeicon" /></a>
+<img src="https://origin.media.wiley.com/spa_assets/R16B065WP/site/wileyplus/include/images/logo.gif"
+                     alt="WileyPLUS - accessible, affordable, active learning" class="header_img"/>
+
+
+   <nav id="menu" role="navigation">
+        <a class="menu-link" id="pull"></a>
+
+			<ul>
+
+			 	<li><a title="Course Admin" href="javascript:switchAccess('course','init');">Course Administration</a>
+						</li>
+		<li><a onmouseover="top.status='Prepare &amp; Present'; return true;" onmouseout="javascript:top.status=''; return true;" onclick="javascript:switchAccess('prepare', 'resource'); return false;" href="#">Prepare &amp; Present</a></li>
+    <li><a id="Go_To_Student_View" href="javascript:void(0);" onclick="javascript:switchAccess('global', 'studentview'); return false;">Go To Student View</a></li>
+		<li><a href="https://www.wileyplus.com/Section/id-406740.html?nocache=1">My WileyPLUS</a></li>
+		 <li><a href="javascript:uni_help();">Help</a></li>
+		 <li><a href="http://catalog.wileyplus.com/contact.html" target="_blank">Contact Us</a></li>
+		 <li><a href="#" onclick="uni_logout();" style="color:#FFF;">Log Out</a></li>
+		</ul>
+    </nav>
+
+<script>
+$(function() {
+	var pull 		= $('#pull');
+		menu 		= $('nav ul');
+		menuHeight	= menu.height();
+
+	$(pull).on('click', function(e) {
+    debugger;
+		e.preventDefault();
+		menu.slideToggle();
+	});
+});
+$(window).resize(function(){
+	var w = $(window).width();
+	if(w > 320 && menu.is(':hidden')) {
+		menu.removeAttr('style');
+	}
+});
+</script>
+<script>
+$(".menu-link").click(function(){
+      $("#menu").toggleClass("active");
+      $(".container").toggleClass("active");
+});
+</script>
+
+</header>

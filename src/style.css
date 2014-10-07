@@ -1,0 +1,638 @@
+@import url(http://fonts.googleapis.com/css?family=Dosis:400,700);
+
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+	font: normal 1em "Helvetica Neue", sans-serif;
+	color: #15191A;
+	background: #FFF;
+	margin: 0;
+	padding:0;
+	width: 100%;
+  height:100%;
+  float:none;
+  position:relative;
+}
+
+#wrapper {
+  min-height:100%;
+  height:100%;
+  float:left;
+  position:relative;
+  background:#f4f4f4;
+  margin-bottom:inherit;
+}
+
+h1 {
+	font-size: 1.6em;
+}
+h2 {
+	font-size: 1em;
+	font-weight: normal;
+}
+
+/*login.tmpl*/
+#loginform {
+  padding-top:20%;
+  float:left;
+  margin-left:8%;
+  position:relative;
+  width:90%;
+}
+
+#loginform p {
+  float:left;
+  position:relative;
+  font-size:12px;
+  margin-left:25%;
+}
+.mwp {
+  width:100%;
+}
+
+fieldset {
+  width:80%;
+  float:left;
+  border:none;
+  background:none;
+  color:#0d5386;
+}
+
+.mwp-right-arrow-button {
+  background:green;
+  width:100%;
+  float:left;
+  position:relative;
+}
+
+#mwp-login-button-wrapper {
+  float:left;
+  padding:2%;
+  position:relative;
+  color:#FFF;
+  text-align:center;
+}
+
+#mwp-login-button-wrapper a {
+  color:#FFF;
+  text-decoration:none;
+}
+
+
+
+/*end login*/
+
+/*_header.tmpl*/
+header {
+	position:fixed;
+	width:100%;
+	float:none;
+  height:40px;
+  background:#FFF;
+  border-bottom:#595959 solid 1px;
+	z-index:1;
+}
+
+.header_img {
+  width:125px;
+  margin-left:30%;
+}
+
+.title {
+	width:100%;
+	float:none;
+	margin:0 auto;
+	padding-bottom:1%;
+  background:#FFF;
+  border-bottom:#595959 solid 1px;
+  z-index:1;
+}
+
+
+#homeicon {
+	width:20px;
+	height:20px;
+	float:left;
+  position:absolute;
+	padding-left:2%;
+  top:8px;
+}
+
+
+.menu-link {
+    position: absolute;
+    top: 8px;
+    left: -25px;
+    height: 25px;
+    width: 25px;
+    background: url(http://cradigital.com/images/navi.png) #504a4a no-repeat ;
+    background-position: center center;
+    background-size: 100%;
+    z-index: 99;
+    -webkit-transition: opacity 0.15s ease;
+    -moz-transition: opacity 0.15s ease;
+    -o-transition: opacity 0.15s ease;
+    transition: opacity 0.15s ease;
+}
+
+#menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #8b8b8b;
+    z-index: 999;
+    -webkit-transform: translate(0px, 0px);
+    -moz-transform: translate(0px, 0px);
+    -o-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+    -webkit-transition: 0.15s ease;
+    -moz-transition: 0.15s ease;
+    -o-transition: 0.15s ease;
+    transition: 0.15s ease;
+    right: -200px;
+}
+
+#menu.active {
+        -webkit-transform: translate(-200px, 0px);
+        -moz-transform: translate(-200px, 0px);
+        -o-transform: translate(-200px, 0px);
+        -ms-transform: translate(-200px, 0px);
+        transform: translate(-200px, 0px);
+}
+
+#menu ul li a {
+	color:#FFF;
+}
+
+nav {
+	margin:0 auto;
+	padding:0;
+	float:left;
+	color:#1f466b;
+}
+
+
+nav ul {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    list-style: none;
+	  color:#FFF;
+}
+
+
+nav ul li {
+  float:none;
+	margin-left:-15px;
+	text-align:left;
+	display:block;
+	padding-bottom:8%;
+	color:#FFF;
+	font-size:14px;
+	position:relative;
+}
+
+
+nav ul li a {
+    color: #FFF;
+	font-size:14px;
+    text-decoration: none;
+    -webkit-transition: color 0.2s ease-in;
+	-moz-transition: color 0.2s ease-in;
+	-o-transition: color 0.2s ease-in;
+	transition: color 0.2s ease-in;
+}
+
+
+/*End _header*/
+
+
+/*instructor_home.tmpl*/
+
+#course-properties {
+	width:100%;
+	float:none;
+	position:relative;
+	margin:0 auto;
+	padding:0;
+}
+#course-hello {
+	float:none;
+	position:relative;
+	text-align: justify;
+  width:100%;
+  padding-top:28%;
+}
+
+
+.middle-part {
+	float:left;
+	position:relative;
+	font-size: 12px;
+  margin-left:25%;
+}
+
+.middle-part img {
+  display:none;
+}
+
+.right-part {
+  display:none;
+}
+
+span a {
+  float:none;
+  position:relative;
+}
+
+.middle-homepage-content {
+	width:100%;
+	float:left;
+  position:relative;
+	padding:0;
+	margin:0 auto;
+}
+
+#class-section-content {
+	width:100%;
+  height:inherit;
+	float:left;
+	position:relative;
+  display:block;
+}
+
+#class-section-content img {
+	display:none;
+}
+
+.item-list {
+  float:left;
+  position:relative;
+  display:block;
+}
+
+.item-list div {
+  font-size:0px;
+  background:none;
+  }
+
+.left-part {
+  width:100%;
+  float:left;
+  position:relative;
+  display:block;
+}
+
+#wrapper a img {
+  display:none;
+}
+
+td .middle-part {
+  width:80%;
+  float:left;
+  position:relative;
+  text-align:left;
+  padding:0;
+  margin-left:-5%;
+}
+
+td .middle-part ul li div{
+  float:left;
+  color:#000;
+}
+
+.panel {
+  width:100%;
+  float:left;
+  position:relative;
+}
+
+.link-with-arrow {
+  list-style:none;
+  float:left;
+  position:relative;
+  width:100%;
+  padding-top:5%;
+}
+
+.link-with-arrow a span {
+  font-family:"Arial Black", Gadget, sans-serif;
+  color:#1f466b;
+  font-size:14px;
+  font-weight:bold;
+  background:#FFF;
+  padding:2%;
+  border-radius:5px;
+  text-align:center;
+  margin-left:20%;
+}
+
+.link-with-arrow span {
+  font-size:12px;
+  float:none;
+  margin-left:3%;
+  display:block;
+  width:50%;
+}
+
+.link-with-arrow a {
+  text-decoration:none;
+}
+
+.link-with-arrow img {
+  display:none;
+}
+
+.notification-header {
+  float:left;
+  width:50%;
+  position:relative;
+  margin-left:20%;
+  color:#1f466b;
+  font-size:14px;
+  font-weight:bold;
+  text-align:center;
+  background:#FFF;
+  padding:2%;
+  border-radius:5px;
+}
+
+/*End instructor_home.tmpl*/
+
+/*rsp.tmpl - Read, Study, Practice*/
+
+#rsp-landing-filters {
+  width:100%;
+  max-width:360px;
+  float:left;
+  position:relative;
+  margin:0 auto;
+  padding:0;
+}
+
+#rsp-landing-filters h3 {
+  color:#0d5386;
+  font-size:16px;
+}
+
+
+.rsp-landing-content {
+  width:100%;
+  padding:0;
+  height:100%;
+  font-size:12px;
+}
+
+.rsp-landing-content h4 {
+  color:#CCC;
+  font-size:14px;
+}
+
+.rsp-landing-content td {
+  width:80%;
+  float:left;
+  position:relative;
+}
+
+#module {
+  float:left;
+  display:block;
+  width:80%;
+}
+
+#chapSelectorDIV {
+  width:100%;
+  float:left;
+  position:relative;
+  padding-top:10%;
+}
+
+
+#rsp-landing-content-book-instructor {
+  float:left;
+  position:relative;
+  display:block;
+  width:90%;
+  min-width:320px;
+  font-size:12px;
+}
+
+#rsp-landing-content-book-instructor tbody {
+  width:100%;
+  float:left;
+  position:relative;
+  padding:0;
+}
+
+
+/*end rsp.tmpl*/
+
+/*assignment.tmpl*/
+.breadcrumb {
+  width:100%;
+  float:left;
+  position:relative;
+  background:#d1d1d1;
+  padding-top:13%;
+}
+
+.breadcrumb b{
+  color:#0d5386;
+  margin-left:5%;
+}
+
+.function-headline {
+  font-size:16px;
+  font-weight:bold;
+  color:#f7983b;
+}
+
+#page-content {
+  width:100%;
+  float:left;
+  position:relative;
+  padding-top:5%;
+  font-size:12px;
+}
+
+#page-content span {
+  float:left;
+  position:relative;
+  text-align:left;
+  repeat:no-repeat;
+}
+
+
+.content-area td {
+  width:100%;
+  float:left;
+  position:relative;
+}
+
+.content-area select {
+  width:70%;
+  float:none;
+  position:relative;
+}
+
+select .input {
+
+}
+
+#gradebook-tab {
+}
+
+/*gradebook.tmpl*/
+.content-area table {
+  width:100%;
+  float:left;
+}
+
+.function-headline{
+  font-size:14px;
+}
+.input200{
+  width: 10%;
+}
+
+#assignmentsSortBy{
+  width:100%;
+  float:left;
+}
+
+#assignmentsSortBy select {
+  width:50%;
+}
+
+td #clsSelector {
+  width:70%;
+  float:left;
+  position:relative;
+}
+
+#assignmentsWrapper {
+  width:100%;
+  float:left;
+  position:relative;
+}
+
+#assignments {
+  width:80%;
+  float:left;
+  position:relative;
+}
+
+.content-area{
+  width:100%;
+  float:left;
+  position:relative;
+  height:inherit;
+}
+
+td #searchButtonWrapper {
+  float:left;
+}
+
+#Export{
+  display: none;
+}
+#Cancel{
+  display: none;
+}
+#export-email{
+  display: none;
+}
+
+.input120{
+  display: none;
+}
+
+
+#applyGBSetting{
+  font-size: 16px;
+}
+/*end gradebook.tmpl*
+
+/*Sub Navigation*/
+
+#wp-page-header-subtabs {
+  float:none;
+  width:100%;
+  background:#667f91;
+  list-style:none;
+  margin-left:-40px;
+}
+
+#wp-page-header-subtabs li {
+  color:white;
+  float:none;
+  font-size:12px;
+  display:inline-block;
+}
+
+#wp-page-header-subtabs li a {
+  color:white;
+  text-decoration:none;
+}
+
+
+
+/*Footer*/
+footer {
+	background: #FFF;
+	width:100%;
+	float:left;
+	position:relative;
+	margin:0 auto;
+	padding:0;
+	font-size:12px;
+	font-family: Arial, Helvetica, sans-serif;
+	color:#000;
+  text-align:center;
+  white-space:none;
+}
+
+footer ul {
+	width:80%;
+	float:none;
+	padding:0;
+	position:relative;
+	margin:0 auto;
+}
+
+footer ul a {
+	color: #000;
+	font-size:12px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+footer ul li {
+	float:none;
+	display:block;
+}
+
+footer p {
+	float:none;
+	position:relative;
+	font-size:9px;
+	color:#000;
+}
+
+#img-footer {
+	float:none;
+	width:75%;
+	padding:0;
+	margin:0 auto;
+}
+
+p {
+	float:left;
+	position:relative;
+}
+
+/*End Footer*/

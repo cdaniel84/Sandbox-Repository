@@ -1,0 +1,10 @@
+{
+    "name": "wileyplus-poc-1",
+    "api": "1.1",
+    "source_directory": "src",
+    "build_directory": "bld",
+    "plugins": [],
+    "exclude": [
+        "*.tmpl"
+    ]
+}

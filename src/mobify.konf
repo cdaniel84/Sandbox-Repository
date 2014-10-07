@@ -1,0 +1,183 @@
+{>"/base/lib/base_konf.konf"/}
+{<konf} {
+// Important: Change nothing above this point
+// -------------------------------------
+
+// Extract title for use in _header.tmpl
+'header': {
+    'title': function() {
+        return $('title').text();
+    }
+},
+
+// Extract page content, which is different depending on the page being rendered
+'content': function(context) {
+    return context.choose(
+    {
+        'templateName': 'instructor_home'
+      , '!hello': function(context) {
+            return $('div#course-hello');
+        },
+        'course': function() {
+            return $('#course-properties');
+        },
+        'menu': function() {
+            return $('.link-with-arrow');
+        },
+        'notification': function() {
+            return $('p.notification-header');
+        }
+    },
+    {
+      'templateName': 'rsp',
+      '!readstudypractice': function(context) {
+        return $('#rsp-landing-filters');
+      },
+      'chapter': function() {
+        return $('form[name=browseChapControl]').addClass('x-keep');
+      },
+      'section': function() {
+        return $('#soSecSelectorDIV');
+      },
+      'objective': function() {
+        return $('#soSelectorDIV');
+      },
+      'chaptercontent': function() {
+        return $('#lwsFrame');
+      },
+    },
+    {
+      'templateName': 'iframe_rsp',
+      '!landingcontent': function(){
+        return $('#rsp-landing-content-book-instructor');
+      },
+    },
+
+    {
+      'templateName': 'assignment',
+      '!class': function (context) {
+        return $('.ada508:contains(Assignments)');
+      },
+      'breadcrumb': function () {
+        return $('.breadcrumb');
+    },
+      'pagecontent': function() {
+        $('#page-content form').addClass('x-keep');
+        return $('#page-content');
+      },
+    },
+    {
+      'templateName': 'pap',
+      '!pap': function(context){
+        return $('.ada508:contains(Resources)');
+      },
+      'breadcrumb': function () {
+        return $('.breadcrumb');
+      },
+      'pagecontent': function() {
+        $('#page-content form').addClass('x-keep');
+        return $('#page-content');
+      }
+    },
+
+    {
+      'templateName': 'student_section',
+      '!class': function (context) {
+        return $('.ada508:contains(Students)');
+      },
+      'breadcrumb': function () {
+        return $('.breadcrumb');
+    },
+    'subtabs': function() {
+      return $('#wp-page-header-subtabs');
+    },
+    'classection': function() {
+      return $('li:contains(Class Section Properties)').remove();
+    },
+      'pagecontent': function() {
+        $('#page-content form').addClass('x-keep');
+        return $('#page-content');
+      }
+    },
+
+  {
+      'templateName': 'gradebook',
+      '!gradebook': function(context) {
+        return $('#gradebook-tab');
+      },
+      'pagecontent': function() {
+        $('#page-content form').addClass('x-keep');
+        return $('#page-content');
+      },
+      'breadcrumb': function () {
+        return $('.breadcrumb');
+    },
+      'functionheadline': function() {
+        return $('div#modal').remove();
+      },
+      'removeSource': function(){
+        return $('.input120').remove();
+      },
+      'removeAuthorTitle': function(){
+        return $('#authorTitle').remove();
+      },
+      'removeAllClasses': function() {
+        return $('option:contains(All Classes)').remove();
+      },
+      'removeSummaryByClass': function(){
+        return $('option:contains(Summary by Class Section)').remove();
+      }
+    },
+
+    {
+      'templateName': 'login',
+      '!login': function(context){
+        $('#loginform').addClass('x-keep');
+        return $('#loginform');
+      },
+      'removeUselessAgain': function(){
+        return $('p.align-right:contains(to complete your request)').remove();
+      }
+    }
+
+
+    /*  // An example of another template object. Uncomment this block and change
+        // your selectors to be unique to the DOM for the template you want to use
+    ,{
+        'templateName': 'about'
+      , '!phonenumber': function() {
+            return $('.selector_for_phone_number');
+        }
+      , '!blurb': function() {
+            return $('.selector_for_blurb');
+        }
+    }*/
+    )
+},
+
+//Remove all desktop site scripts (optional)
+'script': function() {
+    $('head script').addClass('x-keep');
+    $('script:contains("mobile-site")').remove();
+    return $('script').not('.x-keep').remove();
+},
+
+'forms': function() {
+  return $('form').not('.x-keep').remove();
+},
+
+// Remove all desktop site stylesheets (optional)
+'stylesheet': function() {
+    return $('link[rel="stylesheet"]').remove();
+},
+
+// -------------------------------------
+// Important: Change nothing after this point unless you know what you are doing :)
+'OUTPUTHTML': function(context) {
+    var templateName = context.data('content.templateName');
+    if (templateName) {
+        return context.tmpl(templateName);
+    }
+}
+
+} {/konf}
