@@ -26,9 +26,6 @@
         },
         'notification': function() {
             return $('p.notification-header');
-        },
-        'sysannounce': function() {
-            return $('.message-title');
         }
     },
     {
@@ -137,9 +134,6 @@
       '!login': function(context){
         $('#loginform').addClass('x-keep');
         return $('#loginform');
-      },
-      'courseinfo': function() {
-        return $('#mwp-class-informer-book');
       },
       'removeUselessAgain': function(){
         return $('p.align-right:contains(to complete your request)').remove();
