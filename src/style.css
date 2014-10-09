@@ -216,7 +216,7 @@ nav ul {
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
     list-style: none;
-	  color:#FFF;
+    color:#FFF;
 }
 
 
@@ -527,7 +527,9 @@ td .middle-part ul li div{
   float:left;
   position:relative;
   background:#d1d1d1;
-  padding-top:13%;
+  padding-top:15%;
+  padding-bottom: 1%;
+  border-bottom: 1px solid black;
 }
 
 .breadcrumb b{
@@ -573,24 +575,31 @@ select .input {
 
 }
 
+/*gradebook.tmpl*/
+
 #gradebook-tab {
+    width: 100%;
+    position: relative;
+    float: left;
+    margin:0 auto;
 }
 
-/*gradebook.tmpl*/
-.content-area table {
+.content-area {
   width:100%;
   float:left;
+  position: relative;
+  padding:0;
 }
 
 .function-headline{
   font-size:14px;
 }
 .input200{
-  width: 10%;
+  width: 50%;
 }
 
-#assignmentsSortBy{
-  width:100%;
+td #assignmentsSortBy{
+  width:50%;
   float:left;
 }
 
@@ -598,8 +607,8 @@ select .input {
   width:50%;
 }
 
-td #clsSelector {
-  width:70%;
+#clsSelector {
+  max-width:70%;
   float:left;
   position:relative;
 }
@@ -611,16 +620,9 @@ td #clsSelector {
 }
 
 #assignments {
-  width:80%;
+  max-width:70%;
   float:left;
   position:relative;
-}
-
-.content-area{
-  width:100%;
-  float:left;
-  position:relative;
-  height:inherit;
 }
 
 td #searchButtonWrapper {
@@ -657,16 +659,26 @@ td #searchButtonWrapper {
   margin-left:-40px;
 }
 
+
 #wp-page-header-subtabs li {
-  color:white;
+  width:40%;
   float:none;
   font-size:12px;
   display:inline-block;
+  text-align: center;
+}
+
+.active {
+    background:#d1d1d1;
+    padding: 2%;
+    color: #0d5386;
 }
 
 #wp-page-header-subtabs li a {
   color:white;
   text-decoration:none;
+  text-align: center;
+  margin-left: 10px;
 }
 
 
