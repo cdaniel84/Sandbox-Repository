@@ -83,7 +83,7 @@
       }
     },
 
-    {
+  {
       'templateName': 'student_section',
       '!class': function (context) {
         return $('.ada508:contains(Students)');
@@ -100,8 +100,31 @@
       'pagecontent': function() {
         $('#page-content form').addClass('x-keep');
         return $('#page-content');
+      },
+      'classoptions': function() {
+        return $('table .rosterOperationsForm').remove();
       }
     },
+    {
+      'templateName': 'student_profile',
+      '!profile': function() {
+        return $('.ada508:contains(Student Profile)');
+      },
+      'subnav': function() {
+        return $('#wp-page-header-subtabs');
+      },
+      'breadcrumb': function() {
+        return $('.breadcrumb');
+      },
+      'classection': function() {
+        return $('li:contains(Class Section Properties)').remove();
+      },
+      'pagecontent': function(){
+        $('#page-content form').addClass('x-keep');
+        return $('#page-content');
+      }
+    },
+
 
   {
       'templateName': 'gradebook',
