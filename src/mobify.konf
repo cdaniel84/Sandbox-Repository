@@ -26,6 +26,9 @@
         },
         'notification': function() {
             return $('p.notification-header');
+        },
+        'sysannounce': function() {
+            return $('.message-title');
         }
     },
     {
@@ -80,7 +83,7 @@
       }
     },
 
-    {
+  {
       'templateName': 'student_section',
       '!class': function (context) {
         return $('.ada508:contains(Students)');
@@ -97,8 +100,31 @@
       'pagecontent': function() {
         $('#page-content form').addClass('x-keep');
         return $('#page-content');
+      },
+      'classoptions': function() {
+        return $('table .rosterOperationsForm').remove();
       }
     },
+    {
+      'templateName': 'student_profile',
+      '!profile': function() {
+        return $('.ada508:contains(Student Profile)');
+      },
+      'subnav': function() {
+        return $('#wp-page-header-subtabs');
+      },
+      'breadcrumb': function() {
+        return $('.breadcrumb');
+      },
+      'classection': function() {
+        return $('li:contains(Class Section Properties)').remove();
+      },
+      'pagecontent': function(){
+        $('#page-content form').addClass('x-keep');
+        return $('#page-content');
+      }
+    },
+
 
   {
       'templateName': 'gradebook',
@@ -134,6 +160,9 @@
       '!login': function(context){
         $('#loginform').addClass('x-keep');
         return $('#loginform');
+      },
+      'courseinfo': function() {
+        return $('#mwp-class-informer-book');
       },
       'removeUselessAgain': function(){
         return $('p.align-right:contains(to complete your request)').remove();
