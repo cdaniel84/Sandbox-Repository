@@ -395,7 +395,6 @@ td .middle-part ul li div{
   text-align:center;
   background:#1f466b;
   padding:2%;
-  border-radius:5px;
   border: 1px #595959 solid;
 }
 
@@ -410,45 +409,42 @@ td .middle-part ul li div{
   color:white;
 }
 
-#accordion div {
-  float:left;
-  width:100%;
-  position:relative;
-  padding-bottom:2%;
+ul .notification-header {
+  background:white;
+  border-bottom:white 1px solid;
 }
 
 .selenium-announcement-type-link-title-0 {
-  color:#1f466b;
+  color:white;
   float:left;
-  width:60%;
+  width:100%
   font-size:14px;
   font-weight:bold;
-  text-align:left;
+  text-align:center;
   list-style:none;
-  margin-left:20%;
+  border-bottom:white 1px solid;
 }
 
 .selenium-announcement-type-link-title-1 {
-  color:#1f466b;
+  color:white;
   font-size:14px;
   float:left;
-  width:60%;
+  width:100%;
   font-weight:bold;
-  text-align:left;
+  text-align:center;
   list-style:none;
-  border:none;
-  margin-left:20%;
+  border-bottom:white 1px solid;
 }
 
 .selenium-announcement-type-link-title-2 {
-  color:#1f466b;
+  color:white;
   font-size:14px;
   float:left;
-  width:60%;
+  width:100%;
   font-weight:bold;
-  text-align:left;
+  text-align:center;
   list-style:none;
-  margin-left:20%;
+  border-bottom:white 1px solid;
 }
 
 /*End instructor_home.tmpl*/
@@ -647,6 +643,13 @@ td #searchButtonWrapper {
 #applyGBSetting{
   font-size: 16px;
 }
+
+.gb-ftop {
+  width:100%;
+  float:left;
+  position:relative;
+}
+
 /*end gradebook.tmpl*
 
 /*Sub Navigation*/
@@ -680,8 +683,35 @@ td #searchButtonWrapper {
   text-align: center;
   margin-left: 10px;
 }
+/*End Subnav*/
 
+/*student_section.tmpl*/
 
+.plain-table {
+  width:100%;
+  float:left;
+  position:relative;
+  margin:0 auto;
+  padding:0;
+}
+
+/*end student_section.tmpl*/
+
+/*student_profile.tmpl*/
+
+.section-headline {
+  font-size:14px;
+}
+
+.breadcrumb a {
+  color:black;
+  margin-left:10px;
+}
+
+a #Refresh_Roster {
+  float:left;
+  position:relative;
+}
 
 /*Footer*/
 footer {
