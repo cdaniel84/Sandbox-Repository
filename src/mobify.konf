@@ -29,6 +29,12 @@
         },
         'sysannounce': function() {
             return $('.message-title');
+        },
+          'papremove': function() {
+          return $('span:contains(Prepare & Present)').remove();
+        },
+        'finishedclass': function() {
+          return $('a:contains(Show Finished Class Sections)').remove();
         }
     },
     {
@@ -69,6 +75,7 @@
         return $('#page-content');
       },
     },
+    /*Leave out for now --->
     {
       'templateName': 'pap',
       '!pap': function(context){
@@ -81,7 +88,7 @@
         $('#page-content form').addClass('x-keep');
         return $('#page-content');
       }
-    },
+    },*/
 
   {
       'templateName': 'student_section',
