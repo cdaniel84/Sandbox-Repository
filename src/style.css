@@ -713,6 +713,18 @@ a #Refresh_Roster {
   position:relative;
 }
 
+/*End Student Profile*/
+
+/*License Agreement*/
+
+.round-inner {
+  float:left;
+  position:relative;
+  width:100%;
+  padding-top:10%;
+}
+
+
 /*Footer*/
 footer {
 	background: #FFF;

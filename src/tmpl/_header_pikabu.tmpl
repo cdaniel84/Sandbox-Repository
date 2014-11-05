@@ -1,0 +1,46 @@
+{! This is a header file, which gets included inside of base.tmpl, so that every template which includes base
+   will also include this header. !}
+   <script src="sandbox/pikabu.min.js"></script>
+
+      <div class="m-pikabu-sidebar m-pikabu-left">
+        <!-- left sidebar content -->
+        <h2>Left Sidebar Content</h2>
+    </div>
+<div class="m-pikabu-container">
+<header>
+  <a class="m-pikabu-nav-toggle" data-role="left">
+                Left Menu
+            </a>
+<img src="https://origin.media.wiley.com/spa_assets/R16B065WP/site/wileyplus/include/images/logo.gif"
+                     alt="WileyPLUS - accessible, affordable, active learning" class="header_img"/>
+
+ <a class="m-pikabu-nav-toggle" data-role="right">
+                Right Menu
+            </a>
+
+</header>
+</div>
+<div class="m-pikabu-sidebar m-pikabu-right">
+      <ul style="display:none;">
+
+         <li><a title="Course Admin" href="javascript:switchAccess('course','init');">Course Administration</a>
+            </li>
+    <li><a onmouseover="top.status='Prepare &amp; Present'; return true;" onmouseout="javascript:top.status=''; return true;" onclick="javascript:switchAccess('prepare', 'resource'); return false;" href="#">Prepare &amp; Present</a></li>
+    <li><a id="Go_To_Student_View" href="javascript:void(0);" onclick="javascript:switchAccess('global', 'studentview'); return false;">Go To Student View</a></li>
+    <li><a href="" onclick="Mobify.desktop();return false;">View Full Site</a></li>
+    <li><a href="https://www.wileyplus.com/Section/id-406740.html?nocache=1">My WileyPLUS</a></li>
+     <li><a href="javascript:uni_help();">Help</a></li>
+     <li><a href="http://catalog.wileyplus.com/contact.html" target="_blank">Contact Us</a></li>
+     <li><a href="#" onclick="uni_logout();" style="color:#FFF;">Log Out</a></li>
+    </ul>
+  </div>
+  <script>
+  // All options are optional
+var pikabu = new Pikabu({
+    // Specify left and right sidebar widths independently
+    widths: {
+        left: '70%',
+        right: '70%'
+    }
+});ss
+  </script>

@@ -173,7 +173,30 @@
       'removeUselessAgain': function(){
         return $('p.align-right:contains(to complete your request)').remove();
       }
+    },
+    {
+      'templateName': 'student_license_agreement',
+      '!license': function(context){
+        return $('#page');
+      },
+      'class_details': function() {
+        return $('.round-outer');
+      },
+      'acceptlicense': function() {
+        $('#acceptLicenseForm').addClass('x-keep');
+        return $('#acceptLicenseForm');
+      }
+    },
+    {
+      'templateName': 'student_view',
+      '!studentview': function(context) {
+        return $('.ada508:contains(Choose Class Section)');
+      },
+      'section_table': function() {
+        return $('.plain-table');
+      }
     }
+
 
 
     /*  // An example of another template object. Uncomment this block and change
