@@ -30,7 +30,11 @@
         'sysannounce': function() {
             return $('.message-title');
         },
+<<<<<<< HEAD
         'papremove': function() {
+=======
+          'papremove': function() {
+>>>>>>> d7c8e7fa015bac191051443a298fcb93430a223c
           return $('span:contains(Prepare & Present)').remove();
         },
         'finishedclass': function() {

@@ -696,6 +696,7 @@ td #searchButtonWrapper {
 }
 
 /*end student_section.tmpl*/
+<<<<<<< HEAD
 
 /*student_profile.tmpl*/
 
@@ -722,8 +723,24 @@ a #Refresh_Roster {
   position:relative;
   width:100%;
   padding-top:10%;
+=======
+
+/*student_profile.tmpl*/
+
+.section-headline {
+  font-size:14px;
+>>>>>>> d7c8e7fa015bac191051443a298fcb93430a223c
 }
 
+.breadcrumb a {
+  color:black;
+  margin-left:10px;
+}
+
+a #Refresh_Roster {
+  float:left;
+  position:relative;
+}
 
 /*Footer*/
 footer {
