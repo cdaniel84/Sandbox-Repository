@@ -30,6 +30,13 @@
         'sysannounce': function() {
             return $('.message-title');
         },
+        'papremove': function() {
+          return $('span:contains(Prepare & Present)').remove();
+        },
+        'finishedclass': function() {
+          return $('a:contains(Show Finished Class Sections)').remove();
+        }
+    },
     {
       'templateName': 'rsp',
       '!readstudypractice': function(context) {
@@ -53,6 +60,16 @@
       '!landingcontent': function(){
         return $('#rsp-landing-content-book-instructor');
       },
+    },
+
+    {
+      'templateName': 'timeout',
+      '!session': function(context) {
+        return $('td:contains(Your session has been closed.)');
+      },
+      'information': function() {
+        return $('p:contains(This may have occurred because an administrator has logged you out of the system.)');
+      }
     },
 
     {
@@ -160,8 +177,14 @@
         $('#loginform').addClass('x-keep');
         return $('#loginform');
       },
+      'coursedetail': function() {
+        return $('.round-outer');
+      },
       'courseinfo': function() {
         return $('#mwp-class-informer-book');
+      },
+      'newuser': function() {
+        return $('#mwp-first-registration');
       },
       'removeUselessAgain': function(){
         return $('p.align-right:contains(to complete your request)').remove();
