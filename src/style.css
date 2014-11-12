@@ -19,10 +19,10 @@ body {
 
 #wrapper {
   min-height:100%;
+  width:100%;
   height:100%;
   float:left;
   position:relative;
-  background:#f4f4f4;
   margin-bottom:inherit;
 }
 
@@ -35,15 +35,19 @@ h2 {
 }
 
 /*login.tmpl*/
+
+#mwp-class-informer {
+  float:left;
+}
+
 #mwp-class-informer-book {
   width:100%;
   float:left;
   position:relative;
-  padding-top:20%;
 }
 
 #mwp-book-container {
-  margin-left:33%;
+  margin-left:3%;
   float:left;
 }
 
@@ -94,27 +98,58 @@ fieldset {
 }
 
 .mwp-right-arrow-button {
-  background:green;
-  width:100%;
+  background:#2581C3;
+  width:240px;
   float:left;
   position:relative;
+  text-decoration:none;
 }
 
 #mwp-login-button-wrapper {
   float:left;
-  padding:2%;
+  border-radius:4px;
+  height:45px;
   position:relative;
   color:#FFF;
   text-align:center;
 }
 
-#mwp-login-button-wrapper a {
+#mwp-login-button-wrapper a{
   color:#FFF;
   text-decoration:none;
-  background:green;
+  background:#2581C3;
+  width:100%;
+  float:left;
+  font-size:16px;
+  position:relative;
+}
+
+.c {
+  font-size:16px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+#mwp-first-registration-wrapper {
   width:100%;
   float:left;
   position:relative;
+}
+
+#mwp-first-registration-wrapper p{
+  font-size:12px;
+  text-align:left;
+  margin-left:1%;
+}
+
+.bottom-line {
+  border-top:1px solid #D4D4D4;
+  color:#00548F;
+  width:100%;
+  float:left;
+  position:relative;
+  font-size:14px;
+  font-weight:bold;
 }
 
 /*end login*/
@@ -254,6 +289,8 @@ nav ul li a {
 	position:relative;
 	margin:0 auto;
 	padding:0;
+  background:#8EBC5F;
+  color:white;
 }
 
 #course-hello {
@@ -352,28 +389,25 @@ td .middle-part ul li div{
   float:left;
   position:relative;
   width:100%;
-  padding-top:5%;
 }
 
 .link-with-arrow a span {
   font-family:"Arial #595959", Gadget, sans-serif;
-  color:#1f466b;
+  color:#000000;
   font-size:14px;
   font-weight:bold;
-  background:#FFF;
-  padding:2%;
-  border-radius:5px;
-  border: 1px #595959 solid;
-  text-align:center;
-  margin-left:20%;
+  text-align:left;
+  height:30px;
+  padding-top:2%;
+  text-indent:5%;
 }
 
 .link-with-arrow span {
   font-size:12px;
-  float:none;
-  margin-left:3%;
+  float:left;
   display:block;
-  width:50%;
+  width:100%;
+  border-bottom:1px #D4D4D4 solid;
 }
 
 .link-with-arrow a {
@@ -384,67 +418,75 @@ td .middle-part ul li div{
   display:none;
 }
 
+.message-title {
+  float:left;
+  width:100%;
+  margin:0 auto;
+  position:relative;
+  text-align:left;
+}
+
+#divider {
+  float:left;
+  position:relative;
+  height:50px;
+  width:100%;
+  background:#F4F4F4;
+}
+
 .notification-header {
   float:left;
-  width:50%;
+  width:100%;
+  height:inherit;
   position:relative;
-  margin-left:20%;
-  color:white;
+  color:black;
   font-size:14px;
   font-weight:bold;
-  text-align:center;
-  background:#1f466b;
-  padding:2%;
-  border: 1px #595959 solid;
+  text-align:left;
+  white-space:collapse;
 }
 
 .notification-header span {
-  width:50%;
+  width:100%;
   float:left;
   position:relative;
-  margin-left:25%;
 }
 
 .notification-header span a {
-  color:white;
-}
-
-ul .notification-header {
-  background:white;
-  border-bottom:white 1px solid;
+  color:black;
 }
 
 .selenium-announcement-type-link-title-0 {
-  color:white;
+  color:#000000;
   float:left;
-  width:100%
+  width:100%;
   font-size:14px;
   font-weight:bold;
-  text-align:center;
+  text-align:left;
   list-style:none;
-  border-bottom:white 1px solid;
+  border-bottom:#D4D4D4 1px solid;
 }
 
 .selenium-announcement-type-link-title-1 {
-  color:white;
-  font-size:14px;
+  color:#000000;
   float:left;
   width:100%;
+  font-size:14px;
   font-weight:bold;
-  text-align:center;
+  text-align:left;
   list-style:none;
-  border-bottom:white 1px solid;
+  border-bottom:#D4D4D4 1px solid;
 }
 
 .selenium-announcement-type-link-title-2 {
-  color:white;
-  font-size:14px;
+  color:#000000;
   float:left;
   width:100%;
+  font-size:14px;
   font-weight:bold;
-  text-align:center;
+  text-align:left;
   list-style:none;
-  border-bottom:white 1px solid;
+  border-bottom:#D4D4D4 1px solid;
 }
 
 /*End instructor_home.tmpl*/
@@ -717,39 +759,56 @@ a #Refresh_Roster {
 
 /*License Agreement*/
 
-.round-inner {
+.round-outer {
   float:left;
   position:relative;
   width:100%;
   padding-top:10%;
-
-/*student_profile.tmpl*/
-
-.section-headline {
-  font-size:14px;
 }
 
-.breadcrumb a {
-  color:black;
-  margin-left:10px;
-}
-
-a #Refresh_Roster {
-  float:left;
+#mwp-class-info-wrapper {
   position:relative;
+  float:left;
+  width:100%;
+  padding:none;
+  background:#8EBC5F;
+  color:white;
+}
+
+.round-inner ul {
+  list-style:none;
+  font-size:12px;
+  background:gray;
+  margin:0;
+  width:100%;
+  color:black;
+}
+
+.bottom-dashed {
+  font-size:18px;
+  height:22px;
+  background:#8EBC5F;
+  color:white;
+}
+
+h2 .mwp-bar {
+  float:left;
+  text-align:center;
+  font-size:14px;
 }
 
 /*Footer*/
 footer {
-	background: #FFF;
+	background: #F4F4F4;
+  border-top:solid 4px #D4D4D4;
 	width:100%;
 	float:left;
 	position:relative;
 	margin:0 auto;
 	padding:0;
-	font-size:12px;
+	font-size:10px;
 	font-family: Arial, Helvetica, sans-serif;
-	color:#000;
+	color:#666666;
   text-align:center;
   white-space:none;
 }
@@ -762,10 +821,14 @@ footer ul {
 	margin:0 auto;
 }
 
-footer ul a {
-	color: #000;
-	font-size:12px;
+footer ul a{
+	color: #0066CC;
+	font-size:10px;
 	font-family: Arial, Helvetica, sans-serif;
+}
+
+footer ul a:visited {
+  color: #0066CC;
 }
 
 footer ul li {
