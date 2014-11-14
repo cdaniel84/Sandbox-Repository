@@ -167,7 +167,7 @@ header {
 
 .header_img {
   width:125px;
-  margin-left:30%;
+  margin-left:5%;
 }
 
 .title {
@@ -190,7 +190,7 @@ header {
   top:8px;
 }
 
-
+/* No longer in use - Old Flyout CSS
 .menu-link {
     position: absolute;
     top: 8px;
@@ -276,7 +276,7 @@ nav ul li a {
 	-o-transition: color 0.2s ease-in;
 	transition: color 0.2s ease-in;
 }
-
+*/
 
 /*End _header*/
 
@@ -465,6 +465,7 @@ td .middle-part ul li div{
   text-align:left;
   list-style:none;
   border-bottom:#D4D4D4 1px solid;
+  text-indent:5%;
 }
 
 .selenium-announcement-type-link-title-1 {
@@ -476,6 +477,7 @@ td .middle-part ul li div{
   text-align:left;
   list-style:none;
   border-bottom:#D4D4D4 1px solid;
+  text-indent:5%;
 }
 
 .selenium-announcement-type-link-title-2 {
@@ -487,6 +489,7 @@ td .middle-part ul li div{
   text-align:left;
   list-style:none;
   border-bottom:#D4D4D4 1px solid;
+  text-indent:5%;
 }
 
 /*End instructor_home.tmpl*/
@@ -564,14 +567,13 @@ td .middle-part ul li div{
   width:100%;
   float:left;
   position:relative;
-  background:#d1d1d1;
+  background:#8EBC5F;
   padding-top:15%;
   padding-bottom: 1%;
-  border-bottom: 1px solid black;
 }
 
 .breadcrumb b{
-  color:#0d5386;
+  color:#FFF;
   margin-left:5%;
 }
 
@@ -856,3 +858,319 @@ p {
 }
 
 /*End Footer*/
+
+/*Pikabu*/
+.m-pikabu-viewport {
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  -o-perspective: 1000;
+  perspective: 1000;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* line 21, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
+.m-pikabu-sidebar {
+  position: absolute;
+  overflow: visible;
+  display: block;
+}
+
+/* line 28, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
+.m-pikabu-right {
+  right: 0;
+  width: 300px;
+  -webkit-transform: translate3d(100%, 0, 0);
+  -moz-transform: translate3d(100%, 0, 0);
+  -ms-transform: translate3d(100%, 0, 0);
+  -o-transform: translate3d(100%, 0, 0);
+  transform: translate3d(100%, 0, 0);
+}
+/* line 35, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
+.m-pikabu-right-visible .m-pikabu-right {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* line 40, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
+.m-pikabu-left {
+  width: 300px;
+  -webkit-transform: translate3d(-100%, 0, 0);
+  -moz-transform: translate3d(-100%, 0, 0);
+  -ms-transform: translate3d(-100%, 0, 0);
+  -o-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+}
+/* line 45, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
+.m-pikabu-left-visible .m-pikabu-left {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* line 50, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
+.m-pikabu-container {
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+/* line 54, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
+.m-pikabu-left-visible .m-pikabu-container {
+  -webkit-transform: translate3d(300px, 0, 0);
+  -moz-transform: translate3d(300px, 0, 0);
+  -ms-transform: translate3d(300px, 0, 0);
+  -o-transform: translate3d(300px, 0, 0);
+  transform: translate3d(300px, 0, 0);
+}
+/* line 58, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
+.m-pikabu-right-visible .m-pikabu-container {
+  -webkit-transform: translate3d(-300px, 0, 0);
+  -moz-transform: translate3d(-300px, 0, 0);
+  -ms-transform: translate3d(-300px, 0, 0);
+  -o-transform: translate3d(-300px, 0, 0);
+  transform: translate3d(-300px, 0, 0);
+}
+
+/* line 65, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
+.m-pikabu-container,
+.m-pikabu-sidebar {
+  -webkit-transition: -webkit-transform 0.2s ease-in;
+  -moz-transition: -moz-transform 0.2s ease-in;
+  -o-transition: -o-transform 0.2s ease-in;
+  transition: transform 0.2s ease-in;
+}
+
+/* line 72, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
+.m-pikabu-overlay {
+  display: none;
+}
+/* line 76, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
+.m-pikabu-left-visible .m-pikabu-overlay, .m-pikabu-right-visible .m-pikabu-overlay {
+  position: absolute;
+  top: 0;
+  z-index: 30;
+  display: block;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* line 91, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
+.m-pikabu-overflow-scrolling .m-pikabu-sidebar {
+  overflow: auto;
+}
+
+/* line 95, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
+.m-pikabu-overflow-touch {
+  -webkit-overflow-scrolling: touch;
+}
+@font-face {
+  font-family: 'entypo';
+  font-style: 'normal';
+  font-weight: 'normal';
+  src: url("http://weloveiconfonts.com/api/fonts/entypo/entypo.eot");
+  src: url("http://weloveiconfonts.com/api/fonts/entypo/entypo.eot?#iefix") format("eot"), url("http://weloveiconfonts.com/api/fonts/entypo/entypo.woff") format("woff"), url("http://weloveiconfonts.com/api/fonts/entypo/entypo.ttf") format("truetype"), url("http://weloveiconfonts.com/api/fonts/entypo/entypo.svg#entypo") format("svg");
+}
+
+/* line 49, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+body {
+  margin: 0;
+  padding: 0;
+  background: #fcfdf4;
+  color: #6b645c;
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  z-index:-1;
+}
+
+/* line 59, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+header {
+  overflow: hidden;
+  background: white;
+  text-align: center;
+  text-shadow: 1px 1px 0 #fcfdf4;
+  position:fixed;
+  z-index:1;
+}
+
+/* line 69, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+header h1 {
+  display: inline-block;
+  margin: 0;
+  font-family: "Roboto", "Helvetica Neue", "Helvetica", sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 50px;
+  color: #e64a33;
+}
+/* line 79, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+header h1::before {
+  content: "\26a1";
+  margin-right: 10px;
+  font-family: "entypo", sans-serif;
+}
+
+/* line 86, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+.m-pikabu-nav-toggle {
+  position: relative;
+  float: left;
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 0 #fcfdf4;
+  -moz-box-shadow: inset 0 1px 0 #fcfdf4;
+  box-shadow: inset 0 1px 0 #fcfdf4;
+  text-indent: 100%;
+  white-space: nowrap;
+  color: #000000;
+  line-height: 29px;
+}
+/* line 106, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+.m-pikabu-nav-toggle[data-role="right"] {
+  float: right;
+}
+/* line 110, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+.m-pikabu-nav-toggle::after {
+  content: '☰';
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-family: "entypo", sans-serif;
+  text-align: center;
+  text-indent: 0;
+  font-size: 25px;
+  font-weight: bold;
+  color: inherit;
+}
+/* line 128, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+.m-pikabu-nav-toggle[data-role="right"]::after {
+  content: "\e705";
+  font-size: 17px;
+}
+/* line 134, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+.m-pikabu-left-visible .m-pikabu-nav-toggle[data-role="left"], .m-pikabu-right-visible .m-pikabu-nav-toggle[data-role="right"] {
+  background: rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* line 140, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+section {
+  padding: 20px;
+}
+
+/* line 144, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+.m-pikabu-sidebar {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  background: #2581C3;
+  color: white;
+  width:inherit;
+}
+
+.m-pikabu-sidebar h1 {
+  font-size:16px;
+}
+
+.m-pikabu-sidebar li {
+  width:inherit;
+  list-style:none;
+  padding-bottom:4px;
+}
+
+.m-pikabu-sidebar li a {
+  text-decoration:none;
+  color:#FFF;
+}
+
+/* line 153, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+.m-pikabu-container {
+  background: #fcfdf4;
+}
+
+/* line 157, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+section h2 {
+  display: block;
+  margin: 0;
+  color: #e64a33;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+/* line 168, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+section h3 {
+  display: block;
+  margin: 20px -20px 10px;
+  padding: 5px 20px 7px;
+  background: #e64a33;
+  border-bottom: solid 2px #e6e6dd;
+  color: #fcfdf4;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+/* line 181, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+section p {
+  margin-bottom: 15px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* line 188, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+section p em {
+  color: #e64a33;
+  font-style: normal;
+}
+
+/* line 193, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+section a {
+  color: #e64a33;
+}
+/* line 195, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+section a:hover {
+  color: black;
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  -o-transition: color 0.1s linear;
+  transition: color 0.1s linear;
+}
+
+/* line 201, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
+section ul {
+  margin: 15px 0;
+}
