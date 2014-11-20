@@ -16,7 +16,7 @@
 </script>
 <div class="m-pikabu-viewport">
   <div class="m-pikabu-sidebar m-pikabu-left">
-    <h2>Home</h2>
+    <h2>test</h2>
     <li><a onclick="javascript:switchAccess('gradebook','init'); return false;">Gradebook</a></li>
     <li> <a onclick="javascript:switchAccess('study','init'); return false;">Read, Study, Practice</a></li>
     <li> <a onclick="javascript:switchAccess('assignment','init'); return false;">Assignments</a><li>
@@ -24,10 +24,10 @@
   <div class="m-pikabu-container">
     <div class="m-pikabu-overlay"></div>
     <header>
-      <a class="m-pikabu-nav-toggle" data-role="left">Left Menu</a>
+      <a class="m-pikabu-nav-toggle" data-role="left" id="left">Left Menu</a>
       <img src="https://origin.media.wiley.com/spa_assets/R16B065WP/site/wileyplus/include/images/logo.gif"
                            alt="WileyPLUS - accessible, affordable, active learning" class="header_img"/>
-      <a class="m-pikabu-nav-toggle" data-role="right">Right Menu</a>
+      <a class="m-pikabu-nav-toggle" data-role="right" id="right">Right Menu</a>
     </header>
     <div id="wrapper">
       {#content}
@@ -51,13 +51,53 @@
     </ul>
   </div>
 </div>
-<script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="//cdn.mobify.com/modules/pikabu/0.2.1/pikabu.min.js"></script>
+<!-- Tip Content -->
 
+<ol id="joyRideTipContent">
+
+  <li data-id="left" data-options="modal:false">
+    <h2>Nav Fly Out</h2>
+    </br>
+    <p>Use this for navigation&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+  </li>
+
+  <li data-id="right">
+    <h2>ETC.. Fly Out</h2>
+   </br>
+    <p>Use this for other&nbsp;&nbsp;&nbsp;&nbsp;</p>
+  </li>
+
+  <li data-id="course-title">
+    <h2>Course Info</h2>
+    </br>
+    <p>Here you will find your course info&nbsp;&nbsp;&nbsp;&nbsp;</p>
+  </li>
+
+  <li>
+    <h2>Home Page Navigation</h2>
+    </br>
+    <p>This is the main navigation menu&nbsp;&nbsp;&nbsp;&nbsp;</p>
+  </li>
+
+  <li data-id="viewFull" data-options="tipLocation:top">
+    <h2>Desktop Site</h2>
+    </br>
+    <p>Use this link from any webpage to view the desktop version of that webpage.</p>
+  </li>
+
+</ol>
+<script>
+  $(window).load(function() {
+    $('#joyRideTipContent').joyride({
+      autoStart : true,
+      expose: true,
+      modal: true
+    });
+  });
+</script>
 <script>
 $('.m-pikabu').pikabu({
     viewportSelector: '.pikabu-viewport'
 });
 </script>
 {/content}
-
