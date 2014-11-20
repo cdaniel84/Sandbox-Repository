@@ -12,9 +12,9 @@ body {
 	margin: 0;
 	padding:0;
 	width: 100%;
-  height:100%;
-  float:none;
-  position:relative;
+    height:100%;
+    float:none;
+    position:relative;
 }
 
 #wrapper {
@@ -424,6 +424,14 @@ td .middle-part ul li div{
   margin:0 auto;
   position:relative;
   text-align:left;
+  border-bottom:1px solid #D4D4D4;
+}
+
+.message-title p {
+  color:#000000;
+  font-size:14px;
+  font-weight:bold;
+  text-indent:5%;
 }
 
 #divider {
@@ -432,6 +440,7 @@ td .middle-part ul li div{
   height:50px;
   width:100%;
   background:#F4F4F4;
+  border-bottom:1px solid #D4D4D4;
 }
 
 .notification-header {
@@ -464,7 +473,6 @@ td .middle-part ul li div{
   font-weight:bold;
   text-align:left;
   list-style:none;
-  border-bottom:#D4D4D4 1px solid;
   text-indent:5%;
 }
 
@@ -476,7 +484,6 @@ td .middle-part ul li div{
   font-weight:bold;
   text-align:left;
   list-style:none;
-  border-bottom:#D4D4D4 1px solid;
   text-indent:5%;
 }
 
@@ -488,7 +495,6 @@ td .middle-part ul li div{
   font-weight:bold;
   text-align:left;
   list-style:none;
-  border-bottom:#D4D4D4 1px solid;
   text-indent:5%;
 }
 
@@ -559,7 +565,6 @@ td .middle-part ul li div{
   padding:0;
 }
 
-
 /*end rsp.tmpl*/
 
 /*assignment.tmpl*/
@@ -569,7 +574,8 @@ td .middle-part ul li div{
   position:relative;
   background:#8EBC5F;
   padding-top:15%;
-  padding-bottom: 1%;
+  padding-bottom: 3%;
+  text-indent:30%;
 }
 
 .breadcrumb b{
@@ -580,14 +586,13 @@ td .middle-part ul li div{
 .function-headline {
   font-size:16px;
   font-weight:bold;
-  color:#f7983b;
+  color:#999999;
 }
 
 #page-content {
   width:100%;
   float:left;
   position:relative;
-  padding-top:5%;
   font-size:12px;
 }
 
@@ -598,6 +603,9 @@ td .middle-part ul li div{
   repeat:no-repeat;
 }
 
+.content-area {
+    width:100%;
+}
 
 .content-area td {
   width:100%;
@@ -606,7 +614,7 @@ td .middle-part ul li div{
 }
 
 .content-area select {
-  width:70%;
+  width:50%;
   float:none;
   position:relative;
 }
@@ -615,6 +623,10 @@ select .input {
 
 }
 
+.button large-primary-style {
+    float:left;
+    position:relative;
+}
 /*gradebook.tmpl*/
 
 #gradebook-tab {
@@ -636,6 +648,8 @@ select .input {
 }
 .input200{
   width: 50%;
+    float:left;
+    position:relative;
 }
 
 td #assignmentsSortBy{
@@ -694,31 +708,32 @@ td #searchButtonWrapper {
   position:relative;
 }
 
-/*end gradebook.tmpl*
+/*end gradebook.tmpl*/
 
 /*Sub Navigation*/
 
 #wp-page-header-subtabs {
   float:none;
   width:100%;
-  background:#667f91;
+  background:#D4D4D4;
   list-style:none;
-  margin-left:-40px;
 }
 
 
 #wp-page-header-subtabs li {
-  width:40%;
+  width:45%;
   float:none;
-  font-size:12px;
+  font-size:14px;
+  font-weight:bold;
   display:inline-block;
   text-align: center;
 }
 
 .active {
-    background:#d1d1d1;
+    background:#78ACD1;
     padding: 2%;
-    color: #0d5386;
+    color: #FFF;
+    margin-left:-40px;
 }
 
 #wp-page-header-subtabs li a {
@@ -737,6 +752,10 @@ td #searchButtonWrapper {
   position:relative;
   margin:0 auto;
   padding:0;
+}
+
+.content-area-last tbody {
+    width:50%;
 }
 
 /*end student_section.tmpl*/
@@ -799,10 +818,12 @@ h2 .mwp-bar {
   font-size:14px;
 }
 
+/*End License Agreement*/
+
 /*Footer*/
 footer {
 	background: #F4F4F4;
-  border-top:solid 4px #D4D4D4;
+    border-top:solid 4px #D4D4D4;
 	width:100%;
 	float:left;
 	position:relative;
@@ -811,8 +832,8 @@ footer {
 	font-size:10px;
 	font-family: Arial, Helvetica, sans-serif;
 	color:#666666;
-  text-align:center;
-  white-space:none;
+    text-align:center;
+    white-space:none;
 }
 
 footer ul {
@@ -1099,7 +1120,6 @@ section {
   padding: 10px;
   background: #2581C3;
   color: white;
-  width:inherit;
 }
 
 .m-pikabu-sidebar h1 {
@@ -1174,3 +1194,5 @@ section a:hover {
 section ul {
   margin: 15px 0;
 }
+
+/*End Pikabu*/
