@@ -13,10 +13,11 @@
 // Extract page content, which is different depending on the page being rendered
 'content': function(context) {
     return context.choose(
+        
     {
-        'templateName': 'instructor_home'
-      , '!hello': function(context) {
-            return $('div#course-hello');
+        'templateName': 'instructor_home', 
+        '!hello': function(context) {
+            return $('div#course-instructor-for');
         },
         'course': function() {
             return $('#course-properties');
@@ -35,8 +36,26 @@
         },
         'finishedclass': function() {
           return $('a:contains(Show Finished Class Sections)').remove();
+        },
+         'assignmentnumber': function(){
+            return $('span:contains(assignments)').remove();
         }
     },
+    
+    {
+        'templateName': 'student_home',
+        '!studentview': function(context) {
+        return $('#confirmModalWindow');
+      },
+
+        'coursecontent': function() {
+            return $('#class-section-content');
+        },
+        'timedassignment': function() {
+            return $('b:contains(#firstLogonHeaderMessage)').remove();
+        }
+    },
+   
     {
       'templateName': 'rsp',
       '!readstudypractice': function(context) {
@@ -55,12 +74,14 @@
         return $('#lwsFrame');
       },
     },
+    /*
     {
       'templateName': 'iframe_rsp',
       '!landingcontent': function(){
         return $('#rsp-landing-content-book-instructor');
       },
     },
+    */
 
     {
       'templateName': 'timeout',
@@ -75,8 +96,9 @@
     {
       'templateName': 'assignment',
       '!class': function (context) {
-        return $('.ada508:contains(Assignments)');
+        return $('#assignment-tab');
       },
+    
       'breadcrumb': function () {
         return $('.breadcrumb');
     },
@@ -84,6 +106,12 @@
         $('#page-content form').addClass('x-keep');
         return $('#page-content');
       },
+     'gobutton': function() {
+       return $('.button');
+     },
+     'textremove': function() {
+         return $('span').remove();
+    }
     },
     /*Leave out for now --->
     {
@@ -202,7 +230,8 @@
         $('#acceptLicenseForm').addClass('x-keep');
         return $('#acceptLicenseForm');
       }
-    },
+    }
+    /*
     {
       'templateName': 'student_view',
       '!studentview': function(context) {
@@ -211,8 +240,9 @@
       'section_table': function() {
         return $('.plain-table');
       }
-    }
 
+    }
+*/
 
 
     /*  // An example of another template object. Uncomment this block and change
@@ -243,7 +273,8 @@
 // Remove all desktop site stylesheets (optional)
 'stylesheet': function() {
     return $('link[rel="stylesheet"]').remove();
-},
+},    
+    
 
 // -------------------------------------
 // Important: Change nothing after this point unless you know what you are doing :)
