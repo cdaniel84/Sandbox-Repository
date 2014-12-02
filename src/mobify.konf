@@ -202,21 +202,13 @@
     {
       'templateName': 'login',
       '!login': function(context){
-        $('#loginform').addClass('x-keep');
-        return $('#loginform');
+        return $('form[name=loginform]');
       },
-      'coursedetail': function() {
-        return $('.round-outer');
+      'enterEmail': function(){
+            return $('.input300');
       },
-      'courseinfo': function() {
-        return $('#mwp-class-informer-book');
-      },
-      'newuser': function() {
-        return $('#mwp-first-registration');
-      },
-      'removeUselessAgain': function(){
-        return $('p.align-right:contains(to complete your request)').remove();
-      }
+        'loginButton':function(){
+            return $('#Login');}
     },
     {
       'templateName': 'student_license_agreement',
