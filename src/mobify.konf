@@ -199,17 +199,24 @@
       }
     },
 
-    {
+{
       'templateName': 'login',
       '!login': function(context){
-        return $('form[name=loginform]');
+        return $('.middle-homepage-content');
       },
-      'enterEmail': function(){
-            return $('.input300');
-      },
-        'loginButton':function(){
-            return $('#Login');}
+        /*'loginForm': function(){
+            return $('.login-controls');},*/
+        
+        'loginForm': function(){
+            return $('#loginform');},
+        'loaderImage': function(){
+            return $('#loader-image').remove();},
+        'loginFormDelete': function(){
+            return $('#loginform').remove();},
+        'removeLoginText': function(){
+            return $('#login-label').remove();}
     },
+        
     {
       'templateName': 'student_license_agreement',
       '!license': function(context){
