@@ -36,6 +36,41 @@ h2 {
 
 /*login.tmpl*/
 
+#login-label{
+    float:left;
+  margin-left:8%;
+  position:relative;
+  width:90%;
+  padding-bottom:5%;
+}
+#login-name{
+    float:left;
+    margin-left:8%;
+    position:relative;
+    width:90%;
+    padding-bottom:5%;
+}
+
+#login-password{
+    float:left;
+  margin-left:8%;
+  position:relative;
+  width:90%;
+  padding-bottom:5%;
+}
+
+#login-btn {
+    width:50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#login-btn img{
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #mwp-class-informer {
   float:left;
 }
