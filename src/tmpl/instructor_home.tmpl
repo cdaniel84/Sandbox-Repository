@@ -16,7 +16,7 @@
 </script>
 <div class="m-pikabu-viewport">
   <div class="m-pikabu-sidebar m-pikabu-left">
-    <h2>test</h2>
+    <h2>Home</h2>
     <li><a onclick="javascript:switchAccess('gradebook','init'); return false;">Gradebook</a></li>
     <li> <a onclick="javascript:switchAccess('study','init'); return false;">Read, Study, Practice</a></li>
     <li> <a onclick="javascript:switchAccess('assignment','init'); return false;">Assignments</a><li>
@@ -40,8 +40,10 @@
   </div>
   <div class="m-pikabu-sidebar m-pikabu-right">
     <ul>
-      <li><a title="Course Admin" href="javascript:switchAccess('course','init');">Course Administration</a></li>
-      <li><a onmouseover="top.status='Prepare &amp; Present'; return true;" onmouseout="javascript:top.status=''; return true;" onclick="javascript:switchAccess('prepare', 'resource'); return false;" href="#">Prepare &amp; Present</a></li>
+      <li><a title="Course Admin" onclick=nonMobile('course','init')>Course Administration</a></li>
+
+      <li><a title="Prepare &amp; Present" onclick=nonMobile('prepare','init')>Prepare &amp; Present</a></li>
+        
       <li><a id="Go_To_Student_View" href="javascript:void(0);" onclick="javascript:switchAccess('global', 'studentview'); return false;">Go To Student View</a></li>
       <li><a href="" onclick="Mobify.desktop();return false;">View Full Site</a></li>
       <li><a href="https://www.wileyplus.com/Section/id-406740.html?nocache=1">My WileyPLUS</a></li>
