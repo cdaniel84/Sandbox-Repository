@@ -57,7 +57,33 @@ Below is your base template file, which is extended by home.tmpl:
     {+head}
         {$head|innerHTML|s}
         <link rel="stylesheet" href="{config.configDir}style.css" />
-        
+        <script type="text/javascript">
+            function testGoingToNon(){
+                var txt;
+                var r = confirm("Would you like to view Desktop Site?");
+                if (r == true) {
+                    Mobify.desktop();return false;
+                    } 
+                    else{
+                    }
+                }
+        </script>
+
+        <script type="text/javascript">
+            function nonMobile(pageName, pageType){
+                var temp ="javascript:switchAccess('";
+                var temp1= "','";
+                var temp2 = "');";
+               
+                var temp3 = temp + pageName + temp1 + pageType + temp2;
+                var r = confirm("Message Here");
+                if (r == true) {
+                    window.location.href=temp3;
+                    } 
+                    else{
+                    }
+                }
+        </script>
         <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
         <script src="//cdn.mobify.com/modules/pikabu/0.2.1/pikabu.min.js"></script>
 
