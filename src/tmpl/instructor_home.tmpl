@@ -56,8 +56,22 @@
 <!-- Tip Content -->
 
 <ol id="joyRideTipContent">
-
-  
+    <li>
+        <h1>Home Page</h1>
+        <p>This is the homepage navigation menu</p>
+    </li>
+    <li data-id="left">
+        <h1>Navigation</h1>
+        <p>Use this menu to navigate within main pages</p>
+    </li>
+    <li data-id="right">
+        <h1>ETC Menu</h1>
+        <p>Use this menu to navigate through extra pages</p>
+    </li>
+    <li data-id="viewFull" data-options="tipLocation:top">
+        <h1>View Full Site</h1>
+        <p>Use this link to view the desktop page you are currently on </p>
+    </li>
 
 </ol>
 <!-- End Tip Content -->
@@ -66,7 +80,9 @@
     $('#joyRideTipContent').joyride({
       autoStart : true,
       expose: true,
-      modal: true
+      modal: true,
+        cookieMonster: true,
+        cookieName: 'JoyRide'
     });
   });
 </script>
