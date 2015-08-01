@@ -1,94 +1,164 @@
 {>base/}
 {<content}
-<head>
-
-</head>
+<!-- Mobify 2.0 -->
+  <div id="wrapper">
+<!--Pop up messages for Course Home page -->      
+<script>var user_type = m_role;</script>
+    <script>
+  $j(function() {
+    $j( "#prepareDialog" ).dialog({
+      autoOpen: false,
+      
+        buttons: {
+        "Continue": function() {
+          switchAccess("prepare", "resource");
+        },
+        Cancel: function() {
+          $j( this ).dialog( "close" );
+        }
+      }
+    });
+      $j( "#prepareOpener" ).click(function() {
+      $j( "#prepareDialog" ).dialog( "open" );
+    });
+  });
+  </script>
+<script>
+  $j(function() {
+    $j( "#orionDialog" ).dialog({
+      autoOpen: false,
+        buttons: {
+        "Continue": function() {
+           if (user_type == "instructor") {
+                selectClassScreen('instructor/home/home_lti_class_select.xml', 'ORION', false, false, 'home', 'Available');
+            }
+            if (user_type == "student") {
+                openHomeToolProvider('ORION', 'snapwiz', '', 'Available' ,'/edugen');
+            }
+            else{
+            }
+        },
+        Cancel: function() {
+          $j( this ).dialog( "close" );
+        }
+      }
+    });
+      $j( "#orionOpener" ).click(function() {
+      $j( "#orionDialog" ).dialog( "open" );
+    });
+  });
+  </script>
+<script>
+  $j(function() {
+    $j( "#courseAdminDialog" ).dialog({
+      autoOpen: false,
+        buttons: {
+        "Continue": function() {
+            switchAccess('course','init');
+        },
+        Cancel: function() {
+          $j( this ).dialog( "close" );
+        }
+      }
+    });
+      $j( "#courseAdminOpener" ).click(function() {
+      $j( "#courseAdminDialog" ).dialog( "open" );
+    });
+  });
+  </script>
 
 <script>
-  $(function() {
-    pikabu = new Pikabu({
-    widths: {
-        left: '10%',
-        right: '70%'
-    }
-});
+  $j(function() {
+    $j( "#assignmentHPDialog" ).dialog({
+      autoOpen: false,
+        buttons: {
+        "Continue": function() {
+            switchAccess('assignment','init');
+        },
+        Cancel: function() {
+          $j( this ).dialog( "close" );
+        }
+      }
+    });
+      $j( "#assignmentHPOpener" ).click(function() {
+          if (user_type == "instructor"){
+        $j( "#assignmentHPDialog" ).dialog( "open" );}
+          else{
+              switchAccess('assignment','init');}
+    });
   });
-</script>
-<div class="m-pikabu-viewport">
-  <div class="m-pikabu-sidebar m-pikabu-left">
-    <h2>Home</h2>
-    <li><a onclick="javascript:switchAccess('gradebook','init'); return false;">Gradebook</a></li>
-    <li> <a onclick="javascript:switchAccess('study','init'); return false;">Read, Study, Practice</a></li>
-    <li> <a onclick="javascript:switchAccess('assignment','init'); return false;">Assignments</a><li>
-  </div>
-  <div class="m-pikabu-container">
-    <div class="m-pikabu-overlay"></div>
-    <header>
-      <a class="m-pikabu-nav-toggle" data-role="left" id="left">Left Menu</a>
-      <img src="https://origin.media.wiley.com/spa_assets/R16B065WP/site/wileyplus/include/images/logo.gif"
-                           alt="WileyPLUS - accessible, affordable, active learning" class="header_img"/>
-      <a class="m-pikabu-nav-toggle" data-role="right" id="right">Right Menu</a>
-    </header>
-    <div id="wrapper">
-      {#content}
-      {course}
-      {menu}
-      <div id="divider">{notification}</div>
-        {sysannounce}
-      {/content}
-    </div>
-  </div>
-  <div class="m-pikabu-sidebar m-pikabu-right">
-    <ul>
-      <li><a title="Course Admin" onclick=nonMobile('course','init')>Course Administration</a></li>
+  </script>
 
-      <li><a title="Prepare &amp; Present" onclick=nonMobile('prepare','init')>Prepare &amp; Present</a></li>
-        
-      <li><a id="Go_To_Student_View" href="javascript:void(0);" onclick="javascript:switchAccess('global', 'studentview'); return false;">Go To Student View</a></li>
-      <li><a href="" onclick="Mobify.desktop();return false;">View Full Site</a></li>
-      <li><a href="https://www.wileyplus.com/Section/id-406740.html?nocache=1">My WileyPLUS</a></li>
-      <li><a href="javascript:uni_help();">Help</a></li>
-      <li><a href="http://catalog.wileyplus.com/contact.html" target="_blank">Contact Us</a></li>
-      <li><a href="#" onclick="uni_logout();">Log Out</a></li>
-    </ul>
-  </div>
+<div id="prepareDialog" title="Prepare and Present">
+  <p><span>The following pages are not optimized for mobile view. Would you like to go to the desktop site?</span></p>
 </div>
-<!-- Tip Content -->
+<div id="assignmentHPDialog" title="Assignments">
+  <p><span>The following pages are not optimized for mobile view. Would you like to go to the desktop site?</span></p>
+</div>
+<div id="courseAdminDialog" title="Course Administration">
+  <p><span>The following pages are not optimized for mobile view. Would you like to go to the desktop site?</span></p>
+</div>
+<div id="orionDialog" title="ORION">
+  <p><span>The following pages are not optimized for mobile view. Would you like to go to the desktop site?</span></p>
+</div>
+
+      {#content}
+      {announcementbar}
+      {course}
+      <div id="modalStuff" style="width:100%;margin-left:auto;margin-right:auto;">
+        {notificationModal}
+        {closeModal}
+</div>
+      {courseAdministration}
+      {classSectionInfo}
+      {prepare}
+      {rsp}
+      {assignments}
+      {gradebook}
+      {orion}
+ 
+<div id="divider">
+    
+<h3 class="notification-header">Notifications</h3>
+</div>
+        
+<a onclick="javascript:sysNotifications();" aria-role="button" class="thickbox" id="thickbox-message-pointer-0"><span class="message-title">System Announcements {sysBadge}</span></a>
+
+<a onclick="javascript:clsNotification();"><span class="message-title">Class Announcements {classBadge}</span></a>
+
+
+<a onclick="javascript:courseMaterialsNotification();"><span class="message-title">Course Materials {courseBadge}</span></a>
+      {googleframe}
+      </div>
+        {/content}
+
+
+
+<!-- Tip Content 
 
 <ol id="joyRideTipContent">
-    <li>
-        <h1>Home Page</h1>
-        <p>This is the homepage navigation menu</p>
+ <li>
+        <h1>WileyPLUS Mobile</h1>
+        <p>Welcome to the new WileyPLUS Mobile View</p>
     </li>
-    <li data-id="left">
-        <h1>Navigation</h1>
-        <p>Use this menu to navigate within main pages</p>
-    </li>
-    <li data-id="right">
-        <h1>ETC Menu</h1>
-        <p>Use this menu to navigate through extra pages</p>
+
+    <li data-id="m-pikabu-left">
+    <h1>Navigation Menu</h1>
+        <p>Use this icon to navigate through your course</p>
     </li>
     <li data-id="viewFull" data-options="tipLocation:top">
         <h1>View Full Site</h1>
-        <p>Use this link to view the desktop page you are currently on </p>
+        <p>Use this link to view the desktop version of the page you are currently on</p>
     </li>
 
 </ol>
-<!-- End Tip Content -->
-<script>
-  $(window).load(function() {
-    $('#joyRideTipContent').joyride({
-      autoStart : true,
-      expose: true,
-      modal: true,
-        cookieMonster: true,
-        cookieName: 'JoyRide'
-    });
-  });
+-->
+
+<script type="text/javascript">
+    var anounExist = $('#selenium-message-pointer-0').length;
+    if (anounExist > 0){
+        sysNotifications();
+    }
 </script>
-<script>
-$('.m-pikabu').pikabu({
-    viewportSelector: '.pikabu-viewport'
-});
-</script>
+
 {/content}

@@ -1,0 +1,48 @@
+
+{>base/}
+
+{<content}
+<div id="wrapper">
+<div class="breadcrumb"><b>Class Section Info</b></div>
+{#content}
+<div class="subnav">
+{subtabs}
+</div>
+{pagecontent}
+{/content}
+<script>
+    try{
+        for (var z = 0; z < 2; z++)
+        {
+            var x = $('table.plain-table tbody')[z];
+            x = x.children;
+            for (var i = 0; i < x.length; i++){
+                var y = x[i].children;
+                var yLength = (y.length - 1);
+                for (var j = yLength; j > 0; j--)
+                {
+                    if (j == 0 || j == 2 || j == 3 || j == 4 || j == 5 || j == 6 || j == 7)
+                    {    
+                    y[j].remove();
+                    }
+                    else{ 
+                    
+                    }
+                }
+            }
+        } 
+    }
+    catch (e){
+    }
+    $('td')[14].remove();
+    //$('td')[13].remove();
+    //$('td')[11].remove();
+   // $('td')[10].remove();
+</script>
+<script>
+$(document).ready(function(){
+    $("#applyFilters").html("Show Results");
+});
+</script>
+</div>
+{/content}

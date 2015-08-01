@@ -1,0 +1,58 @@
+{>base/}
+{<content}
+	<div id="wrapper">
+		{#content}
+			{breadcrumb}
+			{?noprogress}
+                {noprogresscontent}
+            {:else}
+                <div id="sortingButtons">
+                        <button onclick="javascript:applySorting('name');">Sort by Name</button>
+                        <button onclick="javascript:applySorting('type');">Sort by type</button>
+                        <button onclick="javascript:applySorting('enddate');">Sort by date</button>
+                </div>
+
+                <div class="gb-total-wrapper">
+                    <h5>Total
+                        <span class="gb-percent">
+                            {?hastotalweighted}
+                                {totalweighted}
+                            {:else}
+                                {totalraw}
+                            {/hastotalweighted}
+                        </span>
+                    </h5>
+                    <table class="gb-total">
+                        <tr>
+                            <th class="first">Raw Score</th>
+                            <th>Progress</th>
+                            {?hasSurveys}
+                                <th>Survey</th>
+                            {/hasSurveys}
+                            {?hasMastery}
+                                <th>Mastery</th>
+                            {/hasMastery}
+                        </tr>
+                        <tr>
+                            <td class="first">{totalraw}</td>
+                            <td>{totalprogress}</td>
+                            {?hasSurveys}
+                                <td>{totalsurveys}</td>
+                            {/hasSurveys}
+                            {?hasMastery}
+                                <td>{totalmastery}</td>
+                            {/hasMastery}
+                        </tr>
+                    </table>
+                </div>
+                <table class="gb-items">
+                    {#assignments}
+                        {>student_gradebook_assignment_item/}
+                    {/assignments}
+                </table>
+            {/noprogress}
+			{forms}
+		{/content}
+	</div>
+      
+{/content}

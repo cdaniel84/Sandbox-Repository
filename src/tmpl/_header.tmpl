@@ -1,55 +1,134 @@
 {! This is a header file, which gets included inside of base.tmpl, so that every template which includes base
    will also include this header. !}
 
-/* this header is currently not in use with base.tmpl */
-
 <header>
-<a title="Home" href="javascript:switchAccess('home','init');"><img src="http://www.wiley.com/college/webprod/responsive/images/home_icon.png" id="homeicon" /></a>
-<img src="https://origin.media.wiley.com/spa_assets/R16B065WP/site/wileyplus/include/images/logo.gif"
-                     alt="WileyPLUS - accessible, affordable, active learning" class="header_img"/>
+<script>
+  $(function() {
+    pikabu = new Pikabu({
+    widths: {
+        left: '70%',
+        right: '70%'
+    }
+});
+  });
 
+</script>
 
-   <nav id="menu" role="navigation">
-        <a class="menu-link" id="pull"></a>
+  <div class="m-pikabu-sidebar m-pikabu-left">
+      
+      <li><a href="javascript:switchAccess('home','init');">Home</a></li>
+          <li><a onclick="javascript:switchAccess('study','init'); return false;">Read, Study, Practice</a></li>
+          <li><a id="assignmentOpener">Assignments</a></li>
+          <li><a onclick="javascript:switchAccess('gradebook','init'); return false;">Gradebook</a></li>
+          
+      <div id="flyout_bar">
+      </div>
+      
+      <li><a href="https://www.wileyplus.com/Section/id-406740.html?nocache=1">My WileyPLUS</a></li>
+      <li><a id="helpOpener">Help</a></li>
+      <li><a id="contactUsOpener">Contact Us</a></li>
 
-			<ul>
+       <li><a href="javascript:Mobify.desktop()">View Full Site</a></li>
 
-			 	<li><a title="Course Admin" href="javascript:switchAccess('course','init');">Course Administration</a>
-						</li>
-		<li><a onmouseover="top.status='Prepare &amp; Present'; return true;" onmouseout="javascript:top.status=''; return true;" onclick="javascript:switchAccess('prepare', 'resource'); return false;" href="#">Prepare &amp; Present</a></li>
-    <li><a id="Go_To_Student_View" href="javascript:void(0);" onclick="javascript:switchAccess('global', 'studentview'); return false;">Go To Student View</a></li>
-    <li><a href="" onclick="Mobify.desktop();return false;">View Full Site</a></li>
-		<li><a href="https://www.wileyplus.com/Section/id-406740.html?nocache=1">My WileyPLUS</a></li>
-		 <li><a href="javascript:uni_help();">Help</a></li>
-		 <li><a href="http://catalog.wileyplus.com/contact.html" target="_blank">Contact Us</a></li>
-		 <li><a href="#" onclick="uni_logout();" style="color:#FFF;">Log Out</a></li>
-		</ul>
-    </nav>
+      <li><a href="#" onclick="uni_logout();" style="color:#FFF;">Log Out</a></li>
+      
+  </div>
+    
+     <div class="m-pikabu-sidebar m-pikabu-right">
+     
+  </div>
 
+  <div class="m-pikabu-container">
+    <div class="m-pikabu-overlay"></div>
+    
+
+      <a class="m-pikabu-nav-toggle" data-role="left"></a>
+      <a href="javascript:switchAccess('home','init');">
+          <img src="https://origin.media.wiley.com/spa_assets/R16B065WP/site/wileyplus/include/images/logo.gif"
+                                                             alt="WileyPLUS - accessible, affordable, active learning" class="header_img"/>
+        </a>
+      <a class="m-pikabu-nav-toggle" data-role="right"></a>
+      </div>
+ 
 
 <script>
-$(function() {
-	var pull 		= $('#pull');
-		menu 		= $('nav ul');
-		menuHeight	= menu.height();
-
-	$(pull).on('click', function(e) {
-		e.preventDefault();
-		menu.slideToggle();
-	});
+$('.m-pikabu').pikabu({
+  viewportSelector: 'header'
 });
-$(window).resize(function(){
-	var w = $(window).width();
-	if(w > 320 && menu.is(':hidden')) {
-		menu.removeAttr('style');
-	}
-});
-</script>
+</script> 
+<!--Script function for Pop up messages in Flyout Menu -->
 <script>
-$(".menu-link").click(function(){
-      $("#menu").toggleClass("active");
-      $(".container").toggleClass("active");
-});
-</script>
+  $j(function() {
+    $j( "#helpDialog" ).dialog({
+      autoOpen: false,
+      
+        buttons: {
+        "Continue": function() {
+          uni_help();
+            $j( this ).dialog( "close" );
+        },
+        Cancel: function() {
+          $j( this ).dialog( "close" );
+        }
+      }
+    });
+      $j( "#helpOpener" ).click(function() {
+      $j( "#helpDialog" ).dialog( "open" );
+    });
+  });
+  </script>
+    <script>
+  $j(function() {
+    $j( "#contactUsDialog" ).dialog({
+      autoOpen: false,
+      
+        buttons: {
+        "Continue": function() {
+          var win = window.open('http://catalog.wileyplus.com/contact.html', '_blank');
+            win.focus();
+            $j( this ).dialog( "close" );
+        },
+        Cancel: function() {
+          $j( this ).dialog( "close" );
+        }
+      }
+    });
+      $j( "#contactUsOpener" ).click(function() {
+      $j( "#contactUsDialog" ).dialog( "open" );
+    });
+  });
+  </script>
+    <script>
+  $j(function() {
+      var user_type = m_role;
+    $j( "#assignmentDialog" ).dialog({
+      autoOpen: false,
+      
+        buttons: {
+        "Continue": function() {
+            switchAccess('assignment','init');
+        },
+        Cancel: function() {
+          $j( this ).dialog( "close" );
+        }
+      }
+    });
+      $j( "#assignmentOpener" ).click(function() {
+          if (user_type == "instructor"){
+        $j( "#assignmentDialog" ).dialog( "open" );}
+          else{
+              switchAccess('assignment','init');}
+    });
+  });
+  </script>
+    <div id="assignmentDialog" title="Assignments">
+  <p><span>The following pages are not optimized for mobile view. Would you like to go to the desktop site?</span></p>
 </div>
-</header>
+<div id="helpDialog" title="Help">
+  <p><span>This will open in a new tab and is not mobile friendly. Do you wish to continue?</span></p>
+</div>
+    <div id="contactUsDialog" title="Contact Us">
+  <p><span>This will open in a new tab and is not mobile friendly. Do you wish to continue?</span></p>
+</div>
+
+  </header>

@@ -1,0 +1,76 @@
+{>base/}
+{<content}
+<link rel="stylesheet" href="{config.configDir}jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+    $( "#accordion" ).accordion({  
+      icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
+    });
+  });
+  </script>
+    <div id="wrapper">
+      {#content}
+      {breadcrumb}
+      {pagecontent}
+        <div hidden="hidden">
+            {table}
+        </div>
+        <div id="accordion">
+        </div>
+      {/content}
+    </div>
+<script>
+  var DIV_ID = 0;
+    var H3_ID = 0;
+    var theTable = $('.plain-table-ada508');
+    theTable[0].remove();
+    var theTableElement = theTable[1].children;
+    var c = theTableElement[0].children;
+    var cLength = c.length;
+
+    for(var questionNumber = 0; questionNumber < cLength; questionNumber++)
+    {  
+        if (questionNumber == cLength - 1){
+            $('#accordion').after('<div id=' + DIV_ID + '>' + c[questionNumber].innerHTML + '</div>');
+            break;}
+        else{
+            var e = c[questionNumber].children;
+            $('#accordion').append('<h3 id=' + H3_ID + '>' + e[0].innerHTML + '</h3>');
+            e[0].remove();
+            $('#accordion').append('<div id=' + DIV_ID + '>' + c[questionNumber].innerHTML + '</div>');
+            DIV_ID++;
+            H3_ID++;
+        }
+    }
+
+
+</script>
+<script>
+function removeGoToMobile(){
+    try{
+        var iframe = document.getElementById('CalFrame');
+        var innerDoc = iframe.contentDocument;
+        var goToMobileDiv = innerDoc.getElementById('mobile-site');
+        if (goToMobileDiv){
+            goToMobileDiv.remove();
+        }
+        else{
+            setTimeout('removeGoToMobile();', 50);
+        }
+    }
+    catch(e){
+        console.log(e);
+    }
+}
+    
+removeGoToMobile();
+</script>
+
+{/content}
+

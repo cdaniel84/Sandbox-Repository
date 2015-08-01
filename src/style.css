@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Dosis:400,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
 
 html {
     -webkit-text-size-adjust: 100%;
@@ -6,41 +6,96 @@ html {
 }
 
 body {
-	font: normal 1em "Helvetica Neue", sans-serif;
-	color: #15191A;
-	background: #FFF;
+	font-family:'Open Sans', sans-serif;
+    font-size:16px;
+	background: none;
 	margin: 0;
 	padding:0;
 	width: 100%;
-    float:none;
+    float:left;
     position:relative;
+}
+
+table {
+    float:left;
+    font-size:16px;
+    border:none;
+}
+
+.gone {
+    display:none;
+}
+#noclass {
+    padding-top:30%;
+    margin-left:2%;
+    color:red;
+    font-size:18px;
+    font-weight:bold;
+}
+
+h4 {
+    -webkit-margin-after: 0;
 }
 
 #wrapper {
-  width:100%;
-  min-height:100%;
-  float:left;
-  position:relative;
-  margin-bottom:inherit;
+    width:100%;
+    overflow-x: hidden;
+    min-height:620px;
+    font-family:'Open Sans', sans-serif;
 }
 
-#login-wrapper {
-    padding-top:25%;
+#rspwrapper {
+    width:100%;
+    min-height:620px;
+    font-family:'Open Sans', sans-serif;
+}
+
+
+#wrapper-gradebook-no-data {
+    min-height: 50px;
+}
+
+#wrapper, #wrapper-gradebook-no-data {
     width:100%;
     float:left;
     position:relative;
+    margin-bottom: inherit;
+}
+
+#login-wrapper {
+    width:100%;
+    min-height:420px;
+    height:100%;
+    float:left;
+    position:relative;
     margin-bottom:inherit;
+    z-index: 1;
+    overflow-x:hidden;
+}
+
+a[tabindex="4"] {
+    margin-right:50px;
+    color:#0d5386;
+}
+
+#home-login {
+    width:100%;
+    float:left;
+    position:relative;
+    min-height:600px;
+    margin-bottom:inherit;
+    padding-top:25%;
 }
 
 h1 {
-	font-size: 1.6em;
+	font-size:18px;
 }
 h2 {
 	font-size: 1em;
 	font-weight: normal;
 }
 
-/*login.tmpl*/
+/*login.tmpl; courseLogin.tmpl*/
 
 #mwp-class-informer {
   float:left;
@@ -53,28 +108,33 @@ h2 {
 }
 
 #mwp-book-container {
-  margin-left:3%;
   float:left;
+  position:relative;
+  padding-top:2%;
 }
 
 #mwp-book-container img {
-  max-width:128px;
+  max-width:75px;
+  margin-left:65%;
 }
 
 #mwp-class-informer-book ul {
-  float:left;
+  float:right;
   position:relative;
   text-align:left;
-  width:80%;
-  font-size:14px;
+  width:55%;
+  margin-top:2%;
+  font-size:16px;
+  margin-right:25px;
 }
 
 #mwp-class-informer-book li {
   list-style:none;
-  padding:2%;
+  padding:0 10px 5px;
   float:left;
+  font-size:16px;
   font-weight:bold;
-  color:#595959;
+  color:#000;
 }
 
 #loginform {
@@ -86,10 +146,9 @@ h2 {
 }
 
 #loginform p {
-  float:left;
+  float:right;
   position:relative;
-  font-size:12px;
-  margin-left:25%;
+  font-size:15px;
 }
 .mwp {
   width:100%;
@@ -104,7 +163,7 @@ fieldset {
 }
 
 .mwp-right-arrow-button {
-  background:#2581C3;
+  background:none;
   width:240px;
   float:left;
   position:relative;
@@ -130,6 +189,24 @@ fieldset {
   position:relative;
 }
 
+#mwp-login-button {
+  color: #FFF;
+  width: 70%;
+  height: 35px;
+  background: #2581C3;
+  font-size: 18px;
+  font-weight: bold;
+  border-style:none;
+}
+
+.mwp-book-title {
+    color:#FFF;
+}
+
+.mwp-book-author {
+    color:#D4D4D4;
+}
+
 .c {
   font-size:16px;
   text-decoration:none;
@@ -143,28 +220,40 @@ fieldset {
 }
 
 #mwp-first-registration-wrapper p{
-  font-size:12px;
-  text-align:left;
-  margin-left:1%;
+  font-size:15px;
+  text-align:center;
+  margin-left:10%;
+  width:75%;
+}
+
+#mwp-register-button {
+    background:#2581C3;
+    color:#FFF;
+    border:none;
+    margin-left:28%;
+    height:45px;
+    width:75%;
+    font-size:18px;
+    font-weight:bold;
 }
 
 .bottom-line {
-  border-top:1px solid #D4D4D4;
-  color:#00548F;
+  background:#D4D4D4;
+  color:#000;
   width:100%;
+  height:30px;
   float:left;
   position:relative;
-  font-size:14px;
+  font-size:15px;
+  line-height: 30px;
   font-weight:bold;
+  text-align:center;
 }
 
 .input300 {
     float:left;
     position:relative;
     width:70%;
-    margin-left:10%;
-    margin-bottom:2%;
-    margin-top:5%;
 }
 
 .welcome {
@@ -189,9 +278,125 @@ fieldset {
     margin-left:20%;
     margin-top:2%;
     margin-bottom:3%;
+    padding-bottom:1%;
+    padding-top:1%;
+}
+
+.welcomedmn {
+    margin-left:10%;
+}
+
+
+.login-area {
+    padding-top:30%;
+}
+
+#login-name input {
+    width:320px;
+    height:30px;
+    background:#FFF;
+    float:left;
+    position:relative;
+    margin-left:5%;
+}
+#login-password input {
+    width:320px;
+    height:30px;
+    float:left;
+    position:relative;
+    margin-left:5%;
+}
+
+#login-btn input {
+    display:block;
+    float:none;
+    width:260px;
+    height:44px;
+    margin-left:15%;
+    color:#FFF;
+    background:#2581C3;
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
+    margin-top:2%;
+    border:none;
+}
+
+#password-recovery {
+    margin-right:2%;
+    float:right;
+    width:100%;
+}
+
+#password-recovery a {
+    color:#000;
+    float:right;
+}
+
+.mwp-note a {
+  margin-top:5%;
+  color: #FFF;
+  float: left;
+  width: 70%;
+  height: 35px;
+  background: #2581C3;
+  font-size: 18px;
+  font-weight: bold;
+  border-style: none;
+  text-decoration: none;
+  margin-left:18%;
+  line-height: 30px;
 }
 
 /*end login*/
+
+/*My WileyPLUS*/
+
+#tabs ul {
+    list-style: none;
+    width:100%;
+    float:none;
+    position:relative;
+    background: #d4d4d4;
+    height:35px;
+}
+
+#tabs ul li {
+    display:inline-block;
+    width:150px;
+    height: 35px;
+}
+
+#tabs ul li a {
+    text-decoration: underline;
+    color:#000;
+    font-weight:bold;
+    margin-left:25%;
+    font-size:18px;
+    text-align: center;
+}
+
+.my-listing-item {
+    border-bottom:#d4d4d4 solid 1px;
+}
+
+.item-cover {
+    height: 50px;
+    width:25%;
+    float:left;
+}
+
+.item-cover img {
+    height:75px;
+    margin-left:2%;
+}
+
+.item-content {
+    width:70%;
+    float:right;
+}
+
+/*End My WileyPLUS*/
 
 /*_header.tmpl*/
 header {
@@ -201,11 +406,32 @@ header {
     height:40px;
     background:#FFF;
     border-bottom:#595959 solid 1px;
-	z-index:1;
+    z-index: 1;
 }
+
 .header_img {
   width:125px;
-  margin-left:5%;
+  margin-left: 25%;
+}
+
+  .login_img {
+        margin-left:35%;
+        max-width:125px;
+    }
+
+#flyout_bar {
+    background:#2173ae;
+    height:15px;
+    width:100%;
+}
+
+#rsp_header {
+    line-height: 35px;
+    text-align: left;
+    text-indent:2%;
+    background:#2581C3;
+    color:#FFF;
+    font-weight: bold;
 }
 
 .title {
@@ -327,24 +553,43 @@ nav ul li a {
 	position:relative;
 	margin:0 auto;
 	padding:0;
-  background:#8EBC5F;
-  color:white;
+    background:#8EBC5F;
+    color:#FFF;
 }
 
 #course-hello {
-	float:none;
 	position:relative;
-	text-align: justify;
-  width:100%;
-  padding-top:28%;
+	text-align:center;
+    font-size:12px;
 }
 
+#course-instructor-for {
+    font-size:12px;
+    text-align:center;
+}
+
+#course-title {
+    font-size:16px;
+    text-align:center;
+    
+}
+
+.textBlack {
+    font-size:12px;
+    text-align: center;
+}
+
+.textDarkGrey {
+    font-size:15px;
+    text-align: center;
+}
 
 .middle-part {
-	float:left;
+	float:none;
 	position:relative;
-	font-size: 12px;
-  margin-left:25%;
+    padding-top:15%;
+    padding-bottom:2%;
+    text-align:center;
 }
 
 .middle-part img {
@@ -399,7 +644,7 @@ span a {
 }
 
 #wrapper a img {
-  display:none;
+
 }
 
 td .middle-part {
@@ -427,33 +672,54 @@ td .middle-part ul li div{
   float:left;
   position:relative;
   width:100%;
-}
-
-.link-with-arrow a span {
-  font-family:"Arial #595959", Gadget, sans-serif;
   color:#000000;
-  font-size:14px;
+  font-size:16px;
+  font-weight:bold;
+  text-align:left;
+  padding-bottom:2%;
+  padding-top:2%;
+  text-indent:5%;
+  border-bottom:1px #D4D4D4 solid;
+  text-decoration:none;
+}
+/*
+.link-with-arrow a span {
+  color:#000000;
+  font-size:16px;
   font-weight:bold;
   text-align:left;
   height:30px;
   padding-top:2%;
   text-indent:5%;
 }
-
+*/
 .link-with-arrow span {
-  font-size:12px;
   float:left;
   display:block;
   width:100%;
-  border-bottom:1px #D4D4D4 solid;
+  height:30px;
+  padding-top:2%;
+  content:">";
 }
 
 .link-with-arrow a {
   text-decoration:none;
+  color:#000000;
+  font-size:16px;
+  font-weight:bold;
+  text-align:left;
+  height:30px;
+  text-indent:5;
+  display:block;
 }
 
 .link-with-arrow img {
   display:none;
+}
+
+.notification-header {
+ font-weight: bold;
+ text-indent:5%;
 }
 
 .message-title {
@@ -463,6 +729,12 @@ td .middle-part ul li div{
   position:relative;
   text-align:left;
   border-bottom:1px solid #D4D4D4;
+  color:#000000;
+  font-size:16px;
+  font-weight:bold;
+  height:35px;
+  text-indent:5%;
+  line-height:35px;
 }
 
 .message-title p {
@@ -475,10 +747,9 @@ td .middle-part ul li div{
 #divider {
   float:left;
   position:relative;
-  height:50px;
+  height:55px;
   width:100%;
   background:#F4F4F4;
-  border-bottom:1px solid #D4D4D4;
   text-indent:5%;
 }
 
@@ -487,11 +758,10 @@ td .middle-part ul li div{
   width:100%;
   height:inherit;
   position:relative;
-  color:black;
-  font-size:14px;
+  color:#000;
+  font-size:16px;
   font-weight:bold;
   text-align:left;
-  white-space:collapse;
 }
 
 .notification-header span {
@@ -502,6 +772,34 @@ td .middle-part ul li div{
 
 .notification-header span a {
   color:black;
+}
+
+.home-list-annoncement-preview-medium-priority {
+width: 100%;
+float:left;
+position: fixed;
+display: none;
+padding-top: 15%;
+z-index: 1;
+}
+
+.home-page-list {
+    float:right;
+    position:relative;
+}
+
+.message-pointer {
+height: 20px;
+padding: 0 8px;
+line-height: 18px;
+background-color: #CC0000;
+color: #FFF;
+font-weight: bold;
+font-size:16px;
+border-radius:10px;
+margin-top:2%;
+margin-right: 3%;
+text-indent: -0.5%;
 }
 
 .selenium-announcement-type-link-title-0 {
@@ -515,6 +813,7 @@ td .middle-part ul li div{
   text-indent:5%;
 }
 
+
 .selenium-announcement-type-link-title-1 {
   color:#000000;
   float:left;
@@ -525,6 +824,8 @@ td .middle-part ul li div{
   list-style:none;
   text-indent:5%;
 }
+
+
 
 .selenium-announcement-type-link-title-2 {
   color:#000000;
@@ -537,9 +838,81 @@ td .middle-part ul li div{
   text-indent:5%;
 }
 
+a[title="Course Admin"] {
+    height:25px;
+}
+
 /*End instructor_home.tmpl*/
 
+/*Announcements*/
+
+#closeAnnouncements{
+    background:#2581C3;
+    color:#FFF;
+    font-weight:bold;
+    float:left;
+    height:44px;
+    text-align: center;
+    font-size:15px;
+    border:none;
+    text-shadow: none;
+} 
+
+
+#announcement-tip #mobile-site {
+    display:none;
+}
+.announcement-list tr {
+    background-color:#d4d4d4;
+}
+
+.home-page td {
+    white-space: inherit;
+}
+
+.a-center {
+    float:left;
+    background:#d4d4d4;
+    width:100%;
+    font-size:16px;
+    text-align:left;
+    text-indent:22%;
+}
+
+.announcementType {
+  border-bottom: 1px solid #d4d4d4;
+  color: #0B8DDD;
+  font-weight:bold;    
+  text-indent: 10%;
+  font-size: 17px;
+}
+
+.selenium-announcement-title {
+    color:#000;
+    font-weight:bold;
+    float:left;
+}
+
+.announcement-list td {
+    font-weight:normal;
+}
+
+#announcement-list-container .announcement-list .marker {
+    float:left;
+}
+
+/*End Announcements*/
+
+
 /*rsp.tmpl - Read, Study, Practice*/
+
+h3 {
+    width:100%;
+    float:left;
+    text-indent: 3%;
+    font-size:18px;
+    font-weight: bold;
+}
 
 #rsp-landing-filters {
   width:100%;
@@ -555,24 +928,22 @@ td .middle-part ul li div{
   font-size:16px;
 }
 
-
 .rsp-landing-content {
   width:100%;
+  float:left;
+  position:relative;
   padding:0;
-  height:100%;
-  font-size:12px;
+  font-size:15px;
+  color:#000000;
 }
 
 .rsp-landing-content h4 {
-  color:#CCC;
-  font-size:14px;
+  color:#000;
+  font-size:16px;
+  width:100%;
+  background:#d4d4d4;
 }
 
-.rsp-landing-content td {
-  width:80%;
-  float:left;
-  position:relative;
-}
 
 #module {
   float:left;
@@ -580,20 +951,49 @@ td .middle-part ul li div{
   width:80%;
 }
 
-#chapSelectorDIV {
-  width:100%;
-  float:left;
-  position:relative;
-  padding-top:10%;
+#selectors {
+    float:left;
+    position:relative;
+    width:100%;
+    padding-bottom:3%;
+    border-bottom:1px solid #d4d4d4;
 }
 
+#chapSelectorDIV {
+  width:80%;
+  float:left;
+  position:relative;
+  margin-left:1%;
+}
+
+#browsechapterselector {
+  width:80%;
+  float:left;
+  position:relative;
+  margin-left:1%;
+}
+
+#soSecSelectorDIV {
+  width:80%;
+  float:left;
+  position:relative;
+  padding-top:2%;
+  margin-left:1%;
+}
+
+#soSelectorDIV {
+    width:80%;
+    float:left;
+    position:relative;
+    padding-top:2%;
+    margin-left:1%;
+}
 
 #rsp-landing-content-book-instructor {
   float:left;
   position:relative;
   display:block;
   width:90%;
-  min-width:320px;
   font-size:12px;
 }
 
@@ -604,9 +1004,86 @@ td .middle-part ul li div{
   padding:0;
 }
 
+#rsp-landing-content-book-instructor td {
+    width:100%;
+    float:left;
+    position:relative;
+}
+#rsp-landing-content-book-student td {
+    width:100%;
+    float:left;
+    position:relative;
+}
+
+#rsp-landing-content-book-student h4 {
+    background:#d4d4d4;
+    font-size:14px;
+    height:20px;
+}
+
+#lwsFrame {
+    float:left;
+    position:relative;
+    min-height:650px;
+    margin-bottom:inherit;
+}
+
+#lwsFrame td {
+    float:left;
+    position:relative;
+    width:100%;
+}
+
+#lwsFrame h4 {
+    background:#d4d4d4;
+    font-size:14px;
+    height:20px;
+}
+
+.rsp_iframe {
+    width:80%;
+    float:left;
+    position:relative;
+    color:000;
+    font-size:15px;
+}
+
+.rsp_iframe a span {
+    text-decoration: none;
+    color:000;
+}
+
+#classes {
+    width:100%;
+    float:left;
+    position:relative;
+    padding-bottom:4%;
+    margin-left:1%;
+}
+
+div[title="Bookmarks"] {
+    width:125px;
+    line-height: 30px;
+    font-size: 16px;
+    margin-top:2%;
+    margin-bottom:1%;
+    float:right;
+    background:#d4d4d4;
+}
+
+div[title="Bookmarks"] a {
+    color:#000;
+}
+
 /*end rsp.tmpl*/
 
 /*assignment.tmpl*/
+
+td {
+    float:left;
+}
+
+
 .breadcrumb {
   width:100%;
   float:left;
@@ -614,8 +1091,22 @@ td .middle-part ul li div{
   background:#8EBC5F;
   padding-top:15%;
   padding-bottom: 3%;
-  text-indent:35%;
+  text-indent:5%;
+  font-size:16px;
 }
+
+.breadcrumb_alt {
+width:100%;
+float:left;
+position:relative;
+background:#78acd1;
+padding-top:15%;
+padding-bottom: 3%;
+text-indent:5%;
+color:#FFF;
+font-size:16px;
+}
+
 
 .breadcrumb b{
   color:#FFF;
@@ -624,62 +1115,224 @@ td .middle-part ul li div{
 .function-headline {
   font-size:16px;
   font-weight:bold;
-  color:#999999;
+  color:#000;
+  padding:0;
+  margin-left: -19px;
+  width:375px;
+  background:#d4d4d4;
+  height: 35px;
+  line-height: 30px;
+  text-indent: 3%;    
 }
 
 #page-content {
   width:100%;
   min-height:100%;
-  padding-top:5%;
+  /*padding-top:5%;*/
   float:left;
   position:relative;
-  font-size:12px;
+  font-size:14px;
   margin-bottom:inherit;
-    padding-bottom: 5%;
+  padding-bottom: 5%;
+}
+
+td span .alert {
+    color:red;
 }
 
 #page-content span {
   float:left;
   position:relative;
   text-align:left;
-  repeat:no-repeat;
+}
+#page-content span:nth-of-child(1) {
+  font-weight: bold;
+  border: none;
 }
 
 .content-area {
     width:100%;
+    float:left;
+    position:relative;
+}
+
+.content-area table {
+    width:inherit;
+    float:left;
+    position:relative;
+    text-align:left;
 }
 
 .content-area td {
   width:100%;
   float:left;
   position:relative;
+  background:#FFF;
 }
 
+.alertconfirm {
+    color:green;
+    font-weight:bold;
+}
+
+.content-area span {
+    font-size:16px;
+    float:left;
+    text-align: left;
+}
+
+.tdedit {
+    font-weight: bold;
+    color:#000;
+}
+
+tr .dt {
+    width:100%;
+    margin-left:-15px;
+}
+
+.dt {
+    font-weight:bold;
+}
+    
 .content-area select {
-  width:50%;
+  width:90%;
   float:none;
   position:relative;
 }
 
-select .input {
+select  {
+    /*-webkit-appearance: listbox;*/
+    border-radius:0;
+    background:#FFF;
+    min-width:300px;
+    max-width:300px;
+    height:35px;
+}
 
+#unassign {
+    float:left;
+    width:35%;
+    margin-top:5%;
+    margin-left:3%;
 }
 
 .large-primary-style {
     float:left;
     position:relative;
-    width:30%;
+    width:100%;
     background:#2581C3;
-    font-size: 14px;
+    font-size: 16px;
+    line-height:45px;
     font-weight: bold;
     text-align: center;
+    color:#FFF;
+    text-decoration: none;
 }
 
 .large-primary-style a {
     color:#FFF;
     width:100%;
     text-decoration: none;
+    display:block;
 }
+
+
+.action_combobox {
+    display:none;
+}
+
+.plain-table-ada508 {
+    height:100%;
+    width:100%;
+    float:left;
+    position:relative;
+    padding-top:2%;
+}
+
+.plain-table-ada508 td {
+    width:100%;
+    float:left;
+    text-indent:2%;
+}
+
+.wrap-border tr {
+    width:100%;
+    float:left;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+label {
+    float:left;
+    font-size:12px;
+    text-align: left;
+}
+
+#_start_date_block td {
+    float:left;
+}
+
+/*assignment_properties.tmpl*/
+
+#duedatePicker {
+    margin-left:-20px;
+}
+
+
+.label {
+    font-weight:bold;
+    margin-left:-15px;
+}
+
+.label span {
+    font-weight:bold;
+    float:left;
+}
+
+tr .label td {
+    border-bottom: 1px solid #d4d4d4;
+}
+
+td[align="left"] span {
+    border-bottom: 1px solid #d4d4d4;
+    margin-left:-23px;
+    width:385px;
+    text-indent:5px;
+}
+
+
+/*End Assignment Property*/
+
+/*assignment_availability.tmpl*/
+
+.textGrey {
+    text-align: left;
+    float:left;
+    font-size:12px;
+}
+
+#_title_start {
+    text-align: left;
+    float:left;
+    font-size: 12px;
+}
+
+#_title_end {
+    text-align: left;
+    float:left;
+    font-size: 12px;
+}
+
+
+#late_access_penalty_chb {
+    float:left;
+}
+
+#calendar {
+    margin-left:-60px;
+}
+
+/*End Assignment Availability*/
 
 /*gradebook.tmpl*/
 
@@ -695,30 +1348,34 @@ select .input {
   float:left;
   position: relative;
   padding:0;
+  text-align: left;
 }
 
-.function-headline{
-  font-size:14px;
-}
 .input200{
-  width: 50%;
+    width: 75%;
     float:left;
     position:relative;
+}
+
+td select {
+    width:85%;
+    margin-bottom:5%;
 }
 
 td #assignmentsSortBy{
   width:50%;
   float:left;
+  padding-top: 3%;
+  text-align: left;
 }
 
 #assignmentsSortBy select {
-  width:50%;
+  width:90%;
 }
 
 #clsSelector {
   max-width:70%;
   float:left;
-  position:relative;
 }
 
 #assignmentsWrapper {
@@ -762,10 +1419,13 @@ td #searchButtonWrapper {
   position:relative;
 }
 
+
 .textRed {
     float:left;
     width:100%;
     position:relative;
+    color:red;
+    font-size:12px;
 }
 
 .textRed span {
@@ -775,25 +1435,23 @@ td #searchButtonWrapper {
 
 .odd-row {
     width:100%;
-    positon:relative;
+    position:relative;
     float:left;
     display:block;
-    background:#FFF;
     border-bottom:1px solid #d4d4d4;
-    text-overflow: ellipsis;
 }
 
 .even-row {
     width:100%;
-    positon:relative;
+    position:relative;
     float:left;
     display:block;
-    background:#FFF;
     border-bottom:1px solid #d4d4d4;
 }
 
 .odd-row a {
-    color:#000000;
+    color:#0B8DDD;
+    font-size:15px;
     font-weight: bold;
     text-decoration: none;
     width:100%;
@@ -801,32 +1459,289 @@ td #searchButtonWrapper {
     text-indent: 2%;
 }
 
+.even-row a {
+    color:#0B8DDD;
+    font-size:15px;
+    font-weight: bold;
+    text-decoration: none;
+    width:100%;
+    float:left;
+    text-indent: 2%;
+}
+
+#classTotals {
+    float:left;
+    width:70%;
+    text-align: left;
+    display:none;
+}
+
+#classTotals input {
+    float:left;
+}
+
+#student_list {
+    min-height:610px;
+}
+
+
 /*end gradebook.tmpl*/
+
+
+/*student_gradebook.tmpl*/
+.hidden {
+	display: none;
+}
+
+#sortingButtons {
+    float:left;
+    width:100%;
+    position:relative;
+    padding-top:2%;
+    padding-bottom:2%;
+}
+
+#sortingButtons button {
+    display:inline-block;
+    background:#2581C3;
+    border:1px solid #fff;
+    color:#FFF;
+    font-size:14px;
+    height:50px;
+}
+
+.gb-total-wrapper {
+	background-color: #EEEEEE;
+    float:left;
+    width:100%;
+	padding: 12px 0;
+}
+
+.gb-total-wrapper table {
+    width:100%;
+    float:left;
+}
+
+
+.gradebook-no-data {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.student-gradebook-wrapper .gradebook-no-data {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.student-gradebook-wrapper h3 {
+	color: #000;
+	font-size: 16px;
+	padding: 0;
+	font-weight: 600;
+}
+
+.class-mobile-wrapper + #mobile-site {
+    display: none;
+}
+
+.gb-results-wrapper {
+	padding: 12px 0;
+	border-bottom: 1px solid #d4d4d4;
+}
+
+.gb-total-wrapper h5 {
+	font-weight: bold;
+	font-size: 13px;
+	margin: 0 10px;
+}
+
+.gb-results-wrapper h4 {
+	font-weight: bold !important;
+	font-size: 15px !important;
+	margin: 0 10px;
+	height: auto !important;
+}
+
+.float-clear {
+	clear: both;
+	visibility: hidden;
+	font-size: 1px;
+	display: block;
+	height: 0px;
+}
+
+.float-clear:after {
+	content: '.';
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+	font-size: 0;
+}
+
+.gb-total-wrapper h5 span {
+	float: right;
+}
+
+.gb-percent {
+	color: #8DBE58;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.gb-total, .gb-items, .gb-item table {
+	border-collapse: collapse;
+	width: 100%;
+	float: none;
+	font-size: 13px;
+}
+
+.gb-items .textBlack, .gb-items .textRed {
+	font-size: 13px;
+}
+
+.gb-total {
+	color: #666666;
+}
+
+.gb-total td, .gb-total th, .gb-item td, .gb-item th, .gb-total-wrapper .gb-items td {
+	border-left: 1px solid #666666;
+	text-align: left;
+	padding: 0 10px;
+}
+
+.gb-total th {
+	color: #000000;
+}
+
+.gb-total th.first, .gb-total td.first, .gb-item td.first, .gb-item th.first, .gb-item tr {
+	border: none !important;
+}
+
+.gb-total h5, .gb-items h5 {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.gb-total h5 {
+	margin: 0 0 12px;
+}
+
+.gb-items h5 {
+	margin: 0 0 12px;
+	color: #000;
+    font-size:15px;
+}
+
+.gb-total-wrapper h5 a, .gb-items h5 a, .gb-item h5 a {
+	color: #0B8DDD;
+	text-decoration: none;
+}
+
+.gb-total td, .gb-items td {
+	float: none;
+	padding: 0 10px;
+}
+
+.gb-items tr {
+	border-bottom: 1px solid #CCCCCC;
+/*    float: left;
+    position: relative; */
+}
+
+.gb-total-wrapper .gb-items tr {
+	border: none;
+}
+
+.gb-items td {
+	padding: 12px 10px;
+	color: #666666;
+}
+
+.gb-item {
+	width: 100%;
+}
+
+.strike {
+	text-decoration: line-through;
+}
+
+td.gb-item table .first {
+	padding-left: 0;
+}
+
+.gb-item h5.textGrey, .gb-item h5.textGrey a {
+	color: #666666;
+	float: none;
+}
+
+.gb-item h5 a span {
+	float: right;
+	font-size: 15px;
+}
+
+.gb-weighted {
+	color: #666666;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.gb-score {
+	vertical-align: top;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.nottatempted {
+	color: red;
+}
+
+/*End Student Gradebook*/
+
+/*Instructor Gradebook*/
+td.asnmt-id {
+	width: 25% !important;
+	word-break:keep-all;
+}
+
+td.asnmt-name {
+	width: 75% !important;
+}
+/*End Instructor Gradebook*/
 
 /*Sub Navigation*/
 
+.subnav {
+    width:100%;
+    float:left;
+    position:relative;
+    background:#d4d4d4;
+}
 #wp-page-header-subtabs {
-  float:none;
   width:100%;
-  background:#D4D4D4;
+  float:none;
+  position:relative;
   list-style:none;
+  padding:0;
+  margin-top: -1px;
 }
 
 
 #wp-page-header-subtabs li {
-  width:45%;
-  float:none;
-  font-size:14px;
+  width:50%;
+  float:left;
+  position:relative;
+  font-size:18px;
   font-weight:bold;
   display:inline-block;
   text-align: center;
+  line-height: 30px;
+  height: 30px;
 }
 
 .active {
     background:#78ACD1;
-    padding: 2%;
     color: #FFF;
-    margin-left:-40px;
 }
 
 #wp-page-header-subtabs li a {
@@ -834,6 +1749,12 @@ td #searchButtonWrapper {
   text-decoration:none;
   text-align: center;
 }
+
+.list-item {
+    font-size:16px;
+    border-bottom:1px solid #d4d4d4;
+}
+
 /*End Subnav*/
 
 /*student_section.tmpl*/
@@ -844,10 +1765,143 @@ td #searchButtonWrapper {
   position:relative;
   margin:0 auto;
   padding:0;
+  color:#000000;
 }
+
+.plain-table .selenium-msgTitle:only-child {
+    color:#000;
+    background:none;
+    width:100%;
+    text-align:left;
+}
+.plain-table a {
+    color: #0B8DDD;
+    font-weight:bold;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.plain-table span a:only-child {
+    color: #0B8DDD;
+    font-weight:bold;
+    font-size: 18px;
+    text-decoration: none;
+    background:none;
+    float:left;
+    text-align: left;
+    width:100%;
+}
+
+.plain-table a:nth-of-type(1n) {
+    display:block;
+    color:#000;
+    font-weight: bold;
+    text-decoration: none;
+    background:#d4d4d4;
+    height:30px;
+    width:150px;
+    text-align: center;
+    float:left;
+}
+
+.plain-table a:nth-of-type(2n) {
+    display:block;
+    color:#000;
+    font-weight: bold;
+    text-decoration: none;
+    background:#d4d4d4;
+    height:30px;
+    width:150px;
+    text-align: center;
+    float:right;
+}
+
+.plain-table td {
+    padding-bottom:2%;
+}
+.plain-table tr {
+    width:100%;
+    float:left;
+    background:#FFF;
+    border-bottom:#D4D4D4 solid 1px;
+}
+
+
 
 .content-area-last tbody {
     width:50%;
+}
+
+.content-area-last td {
+    width:inherit;
+    float:left;
+}
+
+.text {
+    color:#FFF;
+    height:35px;
+}
+
+.hide {
+    display:none;
+}
+
+.columns {
+    width:15%;
+}
+
+#switch_s {
+    padding:0 5px;
+}
+
+.mce-panel {
+    width:320px;
+}
+
+.dt {
+    font-size:15px;
+    color:#000;
+}
+
+.checkbox {
+    background:#2581C3;
+    width:95%;
+    height:30px;
+    display: inline-block;
+    margin: 15px 2% 15px;
+    float:left;
+    cursor:pointer;
+}
+
+.helpline {
+    font-size:15px;
+    margin-left:3%;
+}
+
+.selenium-studentName {
+    text-decoration: none;
+}
+
+.manage_home_titles {
+    margin-bottom:5%;
+    font-weight:bold;
+    font-size:18px;
+}
+
+div[title="Add Announcement"] {
+    margin-left:20%;
+}
+
+div[title="Add Document"] {
+    margin-left:20%;
+}
+
+div[title="Go"] {
+    margin-left:12%;
+}
+
+div[title="Refresh Roster"] { 
+    margin-left:20%
 }
 
 /*end student_section.tmpl*/
@@ -855,12 +1909,65 @@ td #searchButtonWrapper {
 /*student_profile.tmpl*/
 
 .section-headline {
-  font-size:14px;
+  float:none;
+  position:relative;
+  font-size:16px;
+  padding:0;
+  margin:0 auto;
+  background:#d4d4d4;
+  width:375px;
+  height:45px;
+  text-indent: 3%;
+  line-height: 40px;
+  margin-left:-15px;    
+}
+
+div[title="Update"] {
+    margin-left:15px;
+}
+
+div[title="Send E-mail"] {
+    margin-top:-200px;
+    margin-left:158px;
+    width:200px;    
+}
+
+#CancelUpdate {
+  margin-bottom: 5%;
+  float: left;
+  width: 100%;
+}
+
+#UpdateStudent {
+    width:170px;
+    float:right;
+    background:#2581C3;
+    color:#FFF;
+    font-weight:bold;
+    height:44px;
+    text-align: center;
+    font-size:15px;
+    text-decoration: none;
+    line-height:45px;
+}
+
+.cancelbutton  {
+    background:#d4d4d4;
+    color:#000;
+    font-weight:bold;
+    float:left;
+    width: 170px;
+    height:44px;
+    text-align: center;
+    font-size:15px;
+    border:none;
+    text-decoration: none;
+    line-height:45px;
 }
 
 .breadcrumb a {
-  color:black;
-  margin-left:10px;
+  color:#FFF;
+  font-weight:bold;
 }
 
 a #Refresh_Roster {
@@ -868,7 +1975,64 @@ a #Refresh_Roster {
   position:relative;
 }
 
+#Send_E-mail {
+    top:-315px;
+}
+
 /*End Student Profile*/
+
+/*edit_announcement.tmpl*/
+
+.editAnnounP {
+    width: 90%;
+    float: right;
+    margin-top: -3px;
+}
+.sectionTitle {
+    font-size: 25px;
+    margin-left:-12px;
+}
+
+hr {
+    margin-left:-12px;
+}
+
+input[name="as_system"] {  
+  float: right;
+  margin-right: 235px;
+  margin-top: -15px;
+}
+
+label[for="as_system"] {
+    margin-left:0;
+}
+
+#page-content span .alert{
+    color:red;
+}
+
+select[name="start_date"] {
+    width:100px;
+}
+
+input[name="end_hour"] {
+    width:110px;
+    float:left;
+}
+
+select[name="end_hourformat"] {
+    width: inherit;
+    float: left;
+    height: 22px;
+}
+#14 {
+    float:left;
+    height:35px;
+}
+
+
+/*End Edit Annoucnement*/
+
 
 /*License Agreement*/
 
@@ -883,26 +2047,38 @@ a #Refresh_Roster {
   position:relative;
   float:left;
   width:100%;
-  padding:none;
-  background:#8EBC5F;
-  color:white;
+  color:#fff;
+  padding-top:3%;
 }
 
 .round-inner ul {
   list-style:none;
-  font-size:12px;
-  background:gray;
+  font-size:14px;
   margin:0;
-  width:100%;
-  color:black;
+  color:#FFF;
+}
+
+#mwp-class-informer-detail {
+    background:#8EBC5F;
+    text-align: center;
+    text-indent:-10%;
+    margin-top:-8px;
+}
+
+#mwp-class-informer-detail li {
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .bottom-dashed {
   font-size:18px;
   height:22px;
-  background:#8EBC5F;
-  color:white;
+  border-bottom:1px solid #D4D4D4;
+  color:#000000;
+  text-indent:5%;
 }
+
 
 h2 .mwp-bar {
   float:left;
@@ -910,7 +2086,76 @@ h2 .mwp-bar {
   font-size:14px;
 }
 
+#Accept {
+    width:50%;
+    float:left;
+    position:relative;
+}
+
 /*End License Agreement*/
+
+/*Student View*/
+.studentview {
+    float:left;
+    position:relative;
+    min-height:540px;
+    width:100%;
+    padding-top:10%;
+}
+
+.studentview td {
+    float:left;
+    position:relative;
+    width:100%;
+}
+
+.studentview tr {
+    width:100%;
+    border-bottom:1px solid #d4d4d4;
+}
+
+.button {
+    float:left;
+    position: relative;
+    width:250px;
+    height:44px;
+    display:block;
+}
+
+.button a {
+    display:block;
+}
+
+
+.small-style {
+    background:#2581C3;
+    color:#FFF;
+    font-weight:bold;
+    float:left;
+    width: 250px;
+    height:44px;
+    text-align: center;
+    font-size:15px;
+}
+
+.small-style a {
+    color:#FFF;
+    text-decoration:none;
+    padding-top:4%;
+}
+
+/*End Student View*/
+
+/*Student Assignment*/
+
+#warning {
+    color:#666666;
+    font-size:15px;
+    font-weight:600;
+    margin-left:2%;
+}
+
+/*End Student Assignment*/
 
 /*Footer*/
 footer {
@@ -919,11 +2164,11 @@ footer {
 	width:100%;
 	float:left;
 	position:relative;
+    bottom:0;
 	margin:0 auto;
 	padding:0;
-	font-size:10px;
-	font-family: Arial, Helvetica, sans-serif;
-	color:#666666;
+	font-size:12px;
+	color:#000;
     text-align:center;
 }
 
@@ -973,7 +2218,8 @@ p {
 
 /*Pikabu*/
 .m-pikabu-viewport {
-  overflow-x:hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
   position: relative;
   display: -webkit-box;
   display: -moz-box;
@@ -1006,7 +2252,7 @@ p {
 /* line 28, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
 .m-pikabu-right {
   right: 0;
-  width: 300px;
+  width: 250px;
   -webkit-transform: translate3d(100%, 0, 0);
   -moz-transform: translate3d(100%, 0, 0);
   -ms-transform: translate3d(100%, 0, 0);
@@ -1024,7 +2270,8 @@ p {
 
 /* line 40, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
 .m-pikabu-left {
-  width: 300px;
+  left:0;
+  width: 250px;
   -webkit-transform: translate3d(-100%, 0, 0);
   -moz-transform: translate3d(-100%, 0, 0);
   -ms-transform: translate3d(-100%, 0, 0);
@@ -1049,6 +2296,7 @@ p {
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+
 /* line 54, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
 .m-pikabu-left-visible .m-pikabu-container {
   -webkit-transform: translate3d(300px, 0, 0);
@@ -1083,7 +2331,7 @@ p {
 .m-pikabu-left-visible .m-pikabu-overlay, .m-pikabu-right-visible .m-pikabu-overlay {
   position: absolute;
   top: 0;
-  z-index: 30;
+  z-index: 1;
   display: block;
   height: 100%;
   width: 100%;
@@ -1096,9 +2344,11 @@ p {
 }
 
 /* line 95, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
+
 .m-pikabu-overflow-touch {
   -webkit-overflow-scrolling: touch;
 }
+
 @font-face {
   font-family: 'entypo';
   font-style: 'normal';
@@ -1107,14 +2357,7 @@ p {
   src: url("http://weloveiconfonts.com/api/fonts/entypo/entypo.eot?#iefix") format("eot"), url("http://weloveiconfonts.com/api/fonts/entypo/entypo.woff") format("woff"), url("http://weloveiconfonts.com/api/fonts/entypo/entypo.ttf") format("truetype"), url("http://weloveiconfonts.com/api/fonts/entypo/entypo.svg#entypo") format("svg");
 }
 
-/* line 59, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
-header {
-  background: white;
-  text-align: center;
-  float:none;
-  position:fixed;
-  z-index: 1;
-}
+
 
 /* line 69, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
 header h1 {
@@ -1124,7 +2367,6 @@ header h1 {
   font-size: 22px;
   font-weight: bold;
   line-height: 50px;
-  color: #e64a33;
 }
 /* line 79, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
 header h1::before {
@@ -1146,17 +2388,18 @@ header h1::before {
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
-  -webkit-box-shadow: inset 0 1px 0 #fcfdf4;
-  -moz-box-shadow: inset 0 1px 0 #fcfdf4;
-  box-shadow: inset 0 1px 0 #fcfdf4;
+  -webkit-box-shadow: inset 0 1px 0 #FFF;
+  -moz-box-shadow: inset 0 1px 0 #FFF;
+  box-shadow: inset 0 1px 0 #FFF;
   text-indent: 100%;
   white-space: nowrap;
   color: #000000;
-  line-height: 25px;
+  line-height: 28px;
 }
 /* line 106, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
 .m-pikabu-nav-toggle[data-role="right"] {
   float: right;
+  display:none;
 }
 /* line 110, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
 .m-pikabu-nav-toggle::after {
@@ -1171,12 +2414,13 @@ header h1::before {
   text-align: center;
   text-indent: 0;
   font-size: 25px;
-  color:#2581C3;
+  color:#000000;
 }
 /* line 128, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
 .m-pikabu-nav-toggle[data-role="right"]::after {
   content: '⋮';
-  font-size: 30px;
+  font-size: 25px;
+  display:none;
 }
 /* line 134, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
 .m-pikabu-left-visible .m-pikabu-nav-toggle[data-role="left"], .m-pikabu-right-visible .m-pikabu-nav-toggle[data-role="right"] {
@@ -1196,29 +2440,42 @@ section {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  padding: 10px;
+  line-height: 28px;
+  text-indent:15%;
   background: #2581C3;
-  color: white;
+  color: #FFF;
+  float:left;
+  text-align: left;
+  font-size:18px;
 }
 
 .m-pikabu-sidebar h1 {
   font-size:16px;
 }
 
+.m-pikabu-sidebar h2 {
+    font-weight:bold;
+    color:#FFF;
+}
+
 .m-pikabu-sidebar li {
-  width:inherit;
+  width:100%;
   list-style:none;
   padding-bottom:4px;
+  border-bottom:1px #2173AE solid;
 }
 
 .m-pikabu-sidebar li a {
+  width:100%;
   text-decoration:none;
   color:#FFF;
+  font-weight:bold;
+  display:block;
 }
 
 /* line 153, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
 .m-pikabu-container {
-  background: #fcfdf4;
+  background: none;
 }
 
 /* line 157, /Users/ted/dev/pikabu/src/scss/pikabu-theme.scss */
@@ -1275,3 +2532,295 @@ section ul {
 }
 
 /*End Pikabu*/
+
+
+/*Media Queries*/
+
+@media (max-width:320px) {
+    .header_img {
+        margin-left:21%;
+    }
+    
+      .login_img {
+        margin-left:35%;
+        max-width:125px;
+    }
+    
+    .breadcrumb {
+        text-indent:2%;
+        font-size:14px;
+    }
+/*Flyour Menu*/    
+    
+.m-pikabu-left-visible .m-pikabu-container {
+  -webkit-transform: translate3d(275px, 0, 0);
+  -moz-transform: translate3d(275px, 0, 0);
+  -ms-transform: translate3d(275px, 0, 0);
+  -o-transform: translate3d(275px, 0, 0);
+  transform: translate3d(275px, 0, 0);
+}
+
+/*Course Log In Page*/
+    
+#mwp-class-info-wrapper {
+    padding-top:5%;
+}
+
+#mwp-class-informer-book ul {
+  float: right;
+  position: relative;
+  text-align: left;
+  width: 50%;
+  margin-top: 1%;
+  font-size: 15px;
+  margin-right: 45px;
+}
+
+#mwp-book-container img {
+   margin-left:50%; 
+}
+ 
+#mwp-class-informer-book li {
+    font-size:14px;
+}
+    
+.bottom-line {
+    margin-top:-25px;
+}
+
+/*Announcements- Course Home Page*/
+
+.announcementType {
+    text-indent:5%;
+}
+    
+.subnav {
+    width:100%;
+    float:left;
+    position:relative;
+    background:#d4d4d4;
+    margin-top: 0px;
+    line-height: 35px;
+}
+ 
+    
+.content-area span {
+    font-size:14px;
+}
+
+/*Class Section Info Sub Navigation*/    
+    
+#wp-page-header-subtabs {
+  width:100%;
+  float:none;
+  position:relative;
+  list-style:none;
+  padding:0;
+}
+
+
+#wp-page-header-subtabs li {
+  width:50%;
+  float:left;
+  position:relative;
+  font-size:15px;
+  font-weight:bold;
+  display:inline-block;
+  text-align: center;
+}
+
+.active {
+    background:#78ACD1;
+    color: #FFF;
+    
+}
+
+#wp-page-header-subtabs li a {
+  color:white;
+  text-decoration:none;
+  text-align: center;
+}
+
+/*Class Section Info - Manage Home Page*/
+
+div[title="Go"] {
+    margin-left:5%;
+}
+    
+select {
+    min-width:250px;
+    max-width:250px;
+}
+    
+.section-headline {
+  float:left;
+  position:relative;
+  font-size:16px;
+  padding:0;
+  margin:0 auto;
+  background:#d4d4d4;
+  width:320px;
+  height:45px;
+  margin-left:-12px;
+}
+
+div[title="Send E-mail"] {
+    margin-top:-190px;
+    margin-left: 152px;
+    width:150px;    
+}
+
+#UpdateStudent {
+    width:150px;
+    float:right;
+    background:#2581C3;
+    color:#FFF;
+    font-weight:bold;
+    height:44px;
+    text-align: center;
+    font-size:15px;
+    text-decoration: none;
+    line-height:45px;
+}
+
+.cancelbutton  {
+    background:#d4d4d4;
+    color:#000;
+    font-weight:bold;
+    float:left;
+    width: 150px;
+    height:44px;
+    text-align: center;
+    font-size:15px;
+    border:none;
+    text-decoration: none;
+    line-height:45px;
+}
+
+.plain-table a:nth-of-type(1n) {
+    display:block;
+    color:#000;
+    font-weight: bold;
+    text-decoration: none;
+    background:#d4d4d4;
+    height:30px;
+    width:140px;
+    text-align: center;
+    float:left;
+}
+
+.plain-table a:nth-of-type(2n) {
+    display:block;
+    color:#000;
+    font-weight: bold;
+    text-decoration: none;
+    background:#d4d4d4;
+    height:30px;
+    width:140px;
+    text-align: center;
+    float:right;
+}    
+
+div[title="Add Announcement"] {
+    margin-left:10%;
+}
+    
+div[title="Add Document"] {
+    margin-left:10%;
+}
+    
+.mce-panel  {
+    width:280px;
+}
+
+td[align="left"] span {
+    border-bottom: 1px solid #d4d4d4;
+    margin-left:-15px;
+    width:320px;
+}    
+
+.function-headline {
+  font-size:16px;
+  font-weight:bold;
+  color:#000;
+  padding:0;
+  margin-left: -19px;
+  width:320px;
+  background:#d4d4d4;
+  height: 35px;
+  line-height: 30px;
+  text-indent: 5%;    
+}    
+
+input[name="as_system"] {  
+  float: right;
+  margin-right: 175px;
+  margin-top: -15px;
+}
+    
+}
+
+@media (min-width:370px) {
+    .header_img {
+        margin-left:25%;
+    }
+    
+    .login_img {
+        margin-left:35%;
+        max-width:125px;
+    }
+    
+    .middle-part {
+        padding-top:12%;
+    }
+    
+    #mwp-login-button {
+        margin-left:15%;
+    }
+    
+    #mwp-register-button {
+        margin-left:35%;
+    }
+    
+    table {
+    float:left;
+    position:relative;
+    font-size:16px;
+    max-width:100%;    
+}
+}
+
+@media (min-width:480px) {
+.m-pikabu-left-visible .m-pikabu-container {
+  -webkit-transform: translate3d(535px, 0, 0);
+  -moz-transform: translate3d(535px, 0, 0);
+  -ms-transform: translate3d(535px, 0, 0);
+  -o-transform: translate3d(535px, 0, 0);
+  transform: translate3d(535px, 0, 0);
+}
+
+.breadcrumb {
+  width: 100%;
+  float: left;
+  position: relative;
+  background: #8EBC5F;
+  padding-top: 7%;
+  padding-bottom: 1%;
+  text-indent: 5%;
+}
+ .breadcrumb_alt {
+  width: 100%;
+  float: left;
+  position: relative;
+  background: #78acd1;
+  padding-top: 7%;
+  padding-bottom: 1%;
+  text-indent: 5%;
+}   
+    
+.my-listing-item {
+    height:85px;
+}
+    
+}
+

@@ -1,0 +1,54 @@
+{>base/}
+<header>
+    <img src="https://origin.media.wiley.com/spa_assets/R16B065WP/site/wileyplus/include/images/logo.gif"
+                           alt="WileyPLUS - accessible, affordable, active learning" class="login_img"/>
+</header>
+{<content}
+<div id="login-wrapper">
+{#content}
+{courseinfo}
+{/content}
+<script>
+$("#assignmentDialog").remove();
+</script>
+<script type="text/javascript">
+    var x = $('form#loginform a');
+    var xHref = x.attr('href');
+    x.attr('href','javascript:forgotPasswordAlert();');
+        function forgotPasswordAlert(){
+            var r = confirm("The following pages are not optimized for mobile view.");
+            if (r){
+                window.location.href = xHref;
+            }
+            else{
+            }
+        }
+
+    var x = $('#mwp-class-informer-detail li a');
+    var xHref = x.attr('href');
+    x.attr('href','javascript:findyourclassAlert();');
+      function findyourclassAlert(){
+        var r = confirm("This will open in a new tab that is not mobile friendly. Do you wish to continue?");
+        if (r){
+                window.location.href = "https://www.wileyplus.com/go/find-your-class" "_blank";
+        }
+        else{
+        }
+    }
+    
+    var x = $('#mwp-first-registration-wrapper a');
+    var xHref = x.attr('href');
+    x.attr('href','javascript:findclassButtonAlert();');
+        function findclassButtonAlert(){
+            var r = confirm("This will open in a new tab that is not mobile friendly. Do you wish to continue?");
+            if (r){
+                    window.location.href = xHref;
+            }
+            else{
+            }
+        }
+</script>
+
+</div>
+{/content}
+

@@ -34,7 +34,7 @@
 /* line 28, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
 .m-pikabu-right {
   right: 0;
-  width: 300px;
+  width: 250px;
   -webkit-transform: translate3d(100%, 0, 0);
   -moz-transform: translate3d(100%, 0, 0);
   -ms-transform: translate3d(100%, 0, 0);
@@ -52,7 +52,7 @@
 
 /* line 40, /Users/ted/dev/pikabu/src/scss/pikabu.scss */
 .m-pikabu-left {
-  width: 300px;
+  width: 250px;
   -webkit-transform: translate3d(-100%, 0, 0);
   -moz-transform: translate3d(-100%, 0, 0);
   -ms-transform: translate3d(-100%, 0, 0);

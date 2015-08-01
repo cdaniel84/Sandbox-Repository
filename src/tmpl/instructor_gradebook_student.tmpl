@@ -1,0 +1,53 @@
+{>base/}
+
+{<content}
+
+	<div id="wrapper">
+		{#content}
+			{breadcrumb}
+			<span class="float-clear"></span>
+			<div class="gb-results-wrapper">
+				<h4>{results}</h4>
+			</div>
+			<div class="gb-total-wrapper">
+				<h5>Total
+					<span class="gb-percent">
+						{totalraw}
+					</span>
+				</h5>
+				<table class="gb-total">
+					<tr>
+						{?hastotalweighted}
+							<th class="first">Weighted Score</th>
+						{/hastotalweighted}
+						<th{?hastotalweighted}{:else} class="first"{/hastotalweighted}>Progress</th>
+						{?hasSurveys}
+							<th>Survey</th>
+						{/hasSurveys}
+						{?hasMastery}
+							<th>Mastery</th>
+						{/hasMastery}
+					</tr>
+					<tr>
+						{?hastotalweighted}
+							<td class="first">{totalweighted}</td>
+						{/hastotalweighted}
+						<td{?hastotalweighted}{:else} class="first"{/hastotalweighted}>{totalprogress}</td>
+						{?hasSurveys}
+							<td>{totalsurveys}</td>
+						{/hasSurveys}
+						{?hasMastery}
+							<td>{totalmastery}</td>
+						{/hasMastery}
+					</tr>
+				</table>
+			</div>
+			<table class="gb-items">
+				{#assignments}
+					{>instructor_gradebook_student_assignment_item/}
+				{/assignments}
+			</table>
+			{forms}
+		{/content}
+	</div>
+{/content}

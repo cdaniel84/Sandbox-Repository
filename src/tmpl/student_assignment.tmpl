@@ -1,0 +1,30 @@
+{>base/}
+{<content}
+
+    <div id="wrapper">
+      {#content}
+        {breadcrumb}
+<script>
+var bread = $('.breadcrumb b').text();
+     if (bread == "Open Assignments"){
+        Mobify.unmobify();
+    }        
+    else{
+    }
+</script>
+<div id="warning">
+<p>Note: For the best experience please view on your desktop.</p>
+</div>
+<div id="sortingButtons">
+	<button onclick="javascript:applySorting('name');">Sort by Name</button>
+	<button onclick="javascript:applySorting('type');">Sort by type</button>
+	<button onclick="javascript:applySorting('enddate');">Sort by date</button>
+</div>
+
+{details}
+        {assigncontent}
+      {/content}
+    </div>
+  
+  
+{/content}

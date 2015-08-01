@@ -13,76 +13,226 @@
 // Extract page content, which is different depending on the page being rendered
 'content': function(context) {
     return context.choose(
-        
+// Code necessary to exclude Tablets from Mobify view        
+    {
+        'templateName': '',
+        '!tablet': function(context) {
+            return /ipad|Nexus 10|Nexus 9|Nexus 7|Xoom|GT-P1000|GT-P5200|GT-P5210|SM-T530|SM-T800|SM-T310|SM-T311|SM-T210|SM-T210R|SM-T217S/i.test(navigator.userAgent);
+        }
+    },
+
     {
         'templateName': 'instructor_home', 
         '!hello': function(context) {
-            return $('div#course-instructor-for');
+            return $('#course-title');
+        },
+        'walkme': function() {
+            return $('#walkme-player').add('[style="display:none;"]');
+        },
+        'courseinstructor': function() {
+            return $('#course-instructor-for').remove();
         },
         'course': function() {
             return $('#course-properties');
         },
-        'menu': function() {
-            return $('.link-with-arrow');
+        'courseAdministration':function(){
+            var x = $('a[title]:contains(Course Admin)');
+             x.removeAttr('href');
+             x.removeAttr('onclick');
+             x.attr('id', 'courseAdminOpener');
+             x.addClass('link-with-arrow');
+            return x;
         },
-        'notification': function() {
-            return $('p.notification-header');
+        'assignments':function(){
+            var x = $('.link-with-arrow a:contains(Assignments)')
+            x.removeAttr('href');
+            x.removeAttr('onclick');
+            x.attr('id','assignmentHPOpener');
+            x.addClass('link-with-arrow');
+            return x;
         },
-        'sysannounce': function() {
-            return $('.message-title');
+        'orion':function(){
+            var x = $('li a[title=ORION]').attr('id','orionOpener');
+            x.removeAttr('href');
+             x.addClass('link-with-arrow');
+             return x;
         },
-        'papremove': function() {
-          return $('span:contains(Prepare & Present)').remove();
+        'prepare': function() {
+            var x = $('.link-with-arrow a:contains(Prepare & Present)').attr('id', 'prepareOpener');
+            x.removeAttr('onclick');
+            x.addClass('link-with-arrow');
+            return x;
         },
+
+        'gradebook':function(){
+            var x = $('.link-with-arrow:contains(Gradebook)');
+            return x;
+        },
+        'classSectionInfo':function(){
+            var x = $('.link-with-arrow:contains(Class Section Information)');
+            return x;
+        },
+        'rsp':function(){
+            var x = $('.link-with-arrow:contains(Read, Study & Practice)');
+            return x;
+        },
+
+        'announcements': function() {
+            $('.home-list-annoncement-preview-medium-priority');
+            return $('#announcements');
+        },
+        'notificationModal': function(){
+            return $('#announcementMsgListWindow');
+        },
+        'closeModal': function(){
+            return $('#closeAnnouncements');
+        },
+
         'finishedclass': function() {
           return $('a:contains(Show Finished Class Sections)').remove();
         },
+        
          'assignmentnumber': function(){
             return $('span:contains(assignments)').remove();
+        },
+        'classBadge': function(){
+            return $('#selenium-message-pointer-1');
+        },
+        'sysBadge': function(){
+            return $('#selenium-message-pointer-0');
+        },
+         'courseBadge': function(){
+            return $('#selenium-message-pointer-2');
+        },
+       
+        'removeTimed': function(){
+            $('b:contains(Return to Timed Assignment)').remove();
+            $('#doYouWishMessage').remove();
+            $('#asnmtTitle').remove();
+            $('a:contains(Yes, continue working)').remove();
+            $('a:contains(No. Proceed to homepage)').remove();
+            $('a:contains(Yes, I am sure)').remove();
+            $('#areYouSureHeaderMessage').remove();
+            $('#areYouSureMessage').remove();
+            $('#firstLogonMessage').remove();
+            $('#doYouWishMessage').remove();
+            $('#areYouSureFooterMessage').remove();
+            $('a:contains(edit settings)').remove();
+            $('td[colspan="2"]').remove();
+            $('form table').remove();
+            $('.left-part').remove();
+        },
+        'announcementbar': function() {
+            return $('.home-list-annoncement-preview-medium-priority');
         }
     },
+
+                
+    {
+         'templateName': 'orion',
+          '!hiOrion': function(context) {
+              return $('h3.ada508:contains(ORION)');
+    },
+        'breadcrumb': function () {
+        return $('.breadcrumb');
+    },
+        'pagecontent': function() {
+        $('#page-content form').addClass('x-keep');
+        return $('#page-content');
+    }
+        },
     
     {
         'templateName': 'student_home',
         '!studentview': function(context) {
         return $('#confirmModalWindow');
       },
-
         'coursecontent': function() {
             return $('#class-section-content');
         },
         'timedassignment': function() {
-            return $('b:contains(#firstLogonHeaderMessage)').remove();
+            $('form b:contains(#firstLogonHeaderMessage)').remove();
+        },
+        
+          'gradebook':function(){
+            var x = $('.link-with-arrow:contains(Gradebook)');
+            return x;
+        },
+        'rsp':function(){
+            var x = $('.link-with-arrow:contains(Read, Study & Practice)');
+            return x;
+        },
+        'assignments':function(){
+            var x = $('.link-with-arrow:contains(Assignments)');
+            return x;
+        },
+       
+         'orion':function(){
+            var x = $('.link-with-arrow:contains(ORION)');
+            return x;
+        },
+         'announcements': function() {
+            return $('.message-title');
         }
     },
-   
-    {
-      'templateName': 'rsp',
-      '!readstudypractice': function(context) {
-        return $('#rsp-landing-filters');
-      },
-      'chapter': function() {
-        return $('form[name=browseChapControl]').addClass('x-keep');
-      },
-      'section': function() {
-        return $('#soSecSelectorDIV');
-      },
-      'objective': function() {
-        return $('#soSelectorDIV');
-      },
-      'chaptercontent': function() {
-        return $('#lwsFrame');
-      },
-    },
-    /*
-    {
-      'templateName': 'iframe_rsp',
-      '!landingcontent': function(){
-        return $('#rsp-landing-content-book-instructor');
-      },
-    },
-    */
 
+	{
+		'templateName': 'rsp',
+		'!readstudypractice': function(context) {
+			return $('#rsp-landing-filters');
+		},
+		'chapter': function() {
+			return $('#chapSelectorDIV');
+		},
+        'bookmark': function() {
+            return $('#bookmarksButton');
+        },
+        'bookmarkcontent': function() {
+            return $('#bookmarksContent');
+        },
+        'studentchapter': function() {
+            $('select').removeAttr('style');
+            return $('#browsechapterselector').remove();
+        },
+		'section': function() {
+			return $('#soSecSelectorDIV');
+		},
+		'objective': function() {
+			return $('#soSelectorDIV');
+		},
+        'removebreadcrumb': function() {
+            return $('a:contains(Read, Study & Practice)').remove();
+        },
+        'removebrake': function() {
+            return $('nobr').remove();
+        },
+		'frame': function () {
+			return $('#lwsFrame');
+		},
+        
+        'classes': function () {
+            $('#soSelector').remove();
+            $('#soSecSelector').remove();
+            $('td b').remove();
+            return $('select[onchange="javascript:switchClassSection(this);"]').remove();
+        }
+    },
+        
+/*
+	{
+		'templateName': 'iframe_rsp',
+		'!landingcontent': function(){
+			return $('#rsp-landing-content-book-instructor');
+		},
+		'toc': function () {
+			return $('#rsp-landing-content-book-instructor');
+		},
+        'removemobilelink': function() {
+            return $('#mobile-site').remove();
+        }
+    },
+
+*/
     {
       'templateName': 'timeout',
       '!session': function(context) {
@@ -92,8 +242,8 @@
         return $('p:contains(This may have occurred because an administrator has logged you out of the system.)');
       }
     },
-
-    {
+/*
+ {
       'templateName': 'assignment',
       '!class': function (context) {
         return $('#assignment-tab');
@@ -102,22 +252,104 @@
       'breadcrumb': function () {
         return $('.breadcrumb');
     },
-      'pagecontent': function() {
-        $('#page-content form').addClass('x-keep');
-        return $('#page-content');
-      },
-     'gobutton': function() {
-       return $('.button');
-     },
-     'textremove': function() {
-         return $('span').remove();
-    }
+     'assignmentable': function() {
+         return $('.assignmentMain');
+     }
+     
+}, 
+*/
+       
+    {
+    'templateName': 'assignment_properties',
+    '!properties': function (context) {
+      return $('.function-headline:contains(Assignment Details)');
     },
+    'subtabs': function() {
+      return $('#wp-page-header-subtabs').remove();
+    },
+    'breadcrumb': function () {
+        return $('.breadcrumb');
+    },
+    'pagecontent': function() {
+        $('iframe[name="CalFrame"]').removeAttr('style');
+        $('#page-content form').addClass('x-keep');
+        //Code used to eliminate spacing in <td> tags//
+        $("td").each(function() {
+        var $this = $(this);
+        $this.html($this.html().replace(/&nbsp;/g, ''));
+        });
+        $('thead').remove();
+        $('#mobile-site').remove();
+        $('div[title="Reset Assignment"]').remove();
+        return $('#page-content');
+    },
+    'table':function(){
+            $('a[title="View attempt details."]').remove();
+            $('a[title="View attempt details. Answer has been submitted after the due date."]').remove();
+            return $('.plain-table-ada508');
+        }
+
+    },
+        
+    {
+        'templateName': 'assignment_availability',
+        '!availability': function (context) {
+            return $('.b:contains(Assignment Properties)');
+        },
+        'breadcrumb':function() {
+            return $('.breadcrumb');
+        },
+        'contentarea':function() {
+            $('table').removeAttr('cellpadding').removeAttr('cellspacing').removeAttr('border');
+            return $('.content-area');
+        }
+    },
+
+{
+            'templateName': 'student_assignment',
+            '!studentassign': function (context) {
+                return $('h3.ada508:contains(Assignment)');
+            },
+            'breadcrumb':function() {
+            return $('.breadcrumb:contains(Assignment)');
+        },
+            'assigncontent': function() {
+                return $('.content-area-box');
+            },
+
+            'extendDueDate': function(){
+                return $('form[name]:contains(noDDForm)').remove();
+            },
+
+            'details':function(){
+                return $('iframe');
+            },
+
+            'getCalendar':function(){
+                return $('#calendar');
+            },
+            'getUpdate':function(){
+                return $('#Update');
+            },
+            'removesorting': function() {
+                return $('.sorting-help').remove();
+            },
+    'removeSecure':function(){
+                 $('#checkPasswordModalWindow').remove();
+                 $('#checkSecureAllowedModalWindow').remove();
+                 $('#secureAssignmentWarnModalWindow').remove();
+                 $('span:contains(Yes.)').remove();
+            },
+            'labels': function() {
+                return $('th').remove();
+            }
+        },
+        
     /*Leave out for now --->
     {
       'templateName': 'pap',
       '!pap': function(context){
-        return $('.ada508:contains(Resources)');
+        return $('#prepare-tab');
       },
       'breadcrumb': function () {
         return $('.breadcrumb');
@@ -129,12 +361,12 @@
     },*/
 
     {
-      'templateName': 'student_section',
+      'templateName': 'class_section',
       '!class': function (context) {
-        return $('.ada508:contains(Students)');
+        return $('h3.ada508:contains(Students)');
       },
       'breadcrumb': function () {
-        return $('.breadcrumb');
+        return $('.breadcrumb:contains(Students)');
     },
     'subtabs': function() {
       return $('#wp-page-header-subtabs');
@@ -142,18 +374,135 @@
     'classection': function() {
       return $('li:contains(Class Section Properties)').remove();
     },
+      'removebuttons': function() {
+        $('table.rosterOperationsForm').remove();
+        $('table.plain-table tr:nth-child(1)').remove();
+        $('table').removeAttr('cellpadding').removeAttr('cellspacing');
+        $('span:contains(Edit)').remove();
+        $('td').removeAttr('align').removeAttr('bgcolor');
+        $("td").each(function() {
+    var $this = $(this);
+    $this.html($this.html().replace(/&nbsp;/g, ''));
+});
+        $('span:contains(Subscription not required)').remove();
+        $('td:contains(= sort by column)')[2].remove();
+        $('.roster-of-btn').remove();
+        $('.roster-of-middle').remove();
+        $('b:contains(Show per page:)').remove();
+        $('input[type="checkbox"]').remove();
+        $('span:contains(@)').remove();
+        $('span:contains(Activated)').remove();
+        $('span:contains(Deactivated)').remove();
+        $('td img').remove();
+    },
+
+       'removetext': function() {
+          $('span:contains(While selecting)').remove();
+      },
       'pagecontent': function() {
         $('#page-content form').addClass('x-keep');
         return $('#page-content');
       },
+    /*
       'classoptions': function() {
         return $('table .rosterOperationsForm').remove();
       }
+      */
+    },
+        
+    {
+    'templateName': 'manage_home',
+    '!manage': function (context) {
+            return $('h3.ada508:contains(Manage Home Page)');
+        },
+    'subtabs': function() {
+      return $('#wp-page-header-subtabs');
+    },
+    'classection': function() {
+      return $('li:contains(Class Section Properties)').remove();
+    },
+    'removetext': function() {
+        $('td[valign=top]').addClass('text');
+    },
+       
+    'removeitemAdd_Announcements': function() {
+        $('.content-area-last table.plain-table:nth-child(1) tr')[0].remove();
+        var x  = $('.content-area-last table.plain-table:nth-child(1)')[1];
+        x.getElementsByTagName('tr')[0].remove();
+        $('table').removeAttr('cellpadding').removeAttr('cellspacing');
+        $('td').removeAttr('bgcolor').removeAttr('valign').removeAttr('align');
+        $('tr').add('align="center"');
+    },
+    
+    'pagecontent': function() {
+        $('#page-content form').addClass('x-keep');
+         $("td").each(function() {
+    var $this = $(this);
+    $this.html($this.html().replace(/&nbsp;/g, ''));
+});
+        $('.breadcrumb').remove();
+        $('table[xmlns="http://www.w3.org/1999/xhtml"]').remove();
+        $('img').remove();
+        $('#wp-page-header-subtabs').remove();
+        $('table').removeAttr('cellpadding').removeAttr('cellspacing').removeAttr('border');
+        $('td').removeAttr('bgcolor').removeAttr('align').removeAttr('valign');
+        $('div[title="Add Announcement"]').before("<div class='manage_home_titles'>Class Section Announcements</div>");
+        $('div[title="Add Document"]').before("<div class='manage_home_titles'>Class Section Documents</div>");
+        return $('#page-content');
+      }
+    },
+
+    {
+      'templateName': 'add_announcement',
+        '!announce': function() {
+            return $('b:contains(Add Announcement)');
+        },
+          'breadcrumb': function () {
+        return $('.breadcrumb');
+    },
+        'pagecontent': function() {
+        $('#page-content form').addClass('x-keep');
+        $('.breadcrumb').remove();
+        $('th').remove();  
+        $('#page-content span').remove();
+        return $('#page-content');
+      }
+    },
+    {
+        'templateName': 'edit_announcement',
+        '!editannounce': function() {
+            return $('b:contains(Edit Announcement)');
+        },
+        'walkme': function() {
+            return $('#walkme-player').add('[style="display:none;"]');
+        },
+        'breadcrumb': function () {
+        return $('.breadcrumb');
+        },
+        'pagecontent': function() {
+        $('#page-content form').addClass('x-keep');
+        $('.breadcrumb').remove();
+        $('#breadcrumb-content').remove();
+        $('.ada508:contains(Edit Announcement)').remove();
+        $('label[for="as_system"]').removeAttr('style');
+        $('th').remove();
+        $("td").each(function() {
+        var $this = $(this);
+        $this.html($this.html().replace(/&nbsp;/g, ''));
+        });
+        $('div[title="Update"]').remove();
+        $('td').removeClass('dt').addClass('tdedit');
+        return $('#page-content');
+      },
+        'removehardcoding': function(){
+            $('table').removeAttr('border').removeAttr('cellpadding').removeAttr('cellspacing').removeAttr('width');
+            $('td').removeAttr('align');
+        }
     },
     {
       'templateName': 'student_profile',
       '!profile': function() {
-        return $('.ada508:contains(Student Profile)');
+        return $('h3.ada508:contains(Student Profile)');
       },
       'subnav': function() {
         return $('#wp-page-header-subtabs');
@@ -164,84 +513,403 @@
       'classection': function() {
         return $('li:contains(Class Section Properties)').remove();
       },
+      'sendemail': function() {
+          return $('div title:contains(Send E-mail)');
+      },
+       'removeitems': function() {
+           $('div[title="Update"]').remove();
+           $('div[title="Cancel"]').remove();
+           $('table').removeAttr('cellpadding').removeAttr('width');
+           $('table').removeAttr('cellspacing').removeAttr('border');
+       },
       'pagecontent': function(){
         $('#page-content form').addClass('x-keep');
         return $('#page-content');
       }
     },
-
-  {
-      'templateName': 'gradebook',
-      '!gradebook': function(context) {
-        return $('#gradebook-tab');
-      },
-      'pagecontent': function() {
-        $('#page-content form').addClass('x-keep');
-        return $('#page-content');
-      },
-      'breadcrumb': function () {
-        return $('.breadcrumb');
-    },
-      'functionheadline': function() {
-        return $('div#modal').remove();
-      },
-      'removeSource': function(){
-        return $('.input120').remove();
-      },
-      'removeAuthorTitle': function(){
-        return $('#authorTitle').remove();
-      },
-      'removeAllClasses': function() {
-        return $('option:contains(All Classes)').remove();
-      },
-      'removeSummaryByClass': function(){
-        return $('option:contains(Summary by Class Section)').remove();
-      }
-    },
-
+        
+        {
+            'templateName': 'student_end_class',
+            '!nogrades': function(context) {
+                return $('.popup-headline');
+            },
+            'content': function() {
+                $('#wp-footer').remove();
+                return $('#wp-page-body');
+            }
+        },
 {
-      'templateName': 'login',
+		'templateName': 'student_gradebook',
+		'!profile': function() {
+			return $('h3.ada508:contains(Gradebook)');
+		},
+		'breadcrumb': function() {
+			return $('.breadcrumb');
+		},
+        'noclasses': function() {
+            return $('.content-area-box:contains(The Gradebook has no progress data at this time.)');
+        },
+		'totalprogress': function() {
+			return $('table.plain-table-ada508 tr:last-child td').eq(3).text();
+		},
+		'totalweighted': function() {
+			return $('table.plain-table-ada508 tr:last-child td').eq(4).text();
+		},
+		'hastotalweighted': function() {
+			return $('table.plain-table-ada508 tr:last-child td').eq(4).text() == '-' ? null : true;
+		},
+		'totalraw': function() {
+			return $('table.plain-table-ada508 tr:last-child td').eq(5).text();
+		},
+		'totalsurveys': function() {
+			return $('table.plain-table-ada508 tr:last-child td').eq(6).text();
+		},
+		'totalmastery': function() {
+			var hasSurveys = $('table.plain-table-ada508 tr:last-child td').eq(6).text().search(/surveys/gi);
+			return $('table.plain-table-ada508 tr:last-child td').eq((hasSurveys !== -1 ? 7 : 6)).text();
+		},
+		'hasSurveys': function() {
+			var hasSurveys = $('table.plain-table-ada508 th').eq(6).text().search(/surveys/gi);
+			return hasSurveys == -1 ? null : 0;
+		},
+		'hasMastery': function() {
+			var hasSurveys = $('table.plain-table-ada508 th').eq(6).text().search(/surveys/gi);
+			var hasMastery = $('table.plain-table-ada508 th').eq((hasSurveys !== -1 ? 7 : 6)).text().search(/mastery/gi);
+			return hasMastery == -1 ? null : 0;
+		},
+		'hasExtends': function() {
+			var hasSurveys = $('table.plain-table-ada508 th').eq(6).text().search(/surveys/gi);
+			var hasMastery = $('table.plain-table-ada508 th').eq((hasSurveys !== -1 ? 7 : 6)).text().search(/mastery/gi);
+			return hasMastery == -1 && hasSurveys == -1 ? null : 0;
+		},
+		'assignments': function() {
+			var content = [];
+			var detailsIndex = 6;
+			var accessibleIndex = 7;
+			var hasSurveys = $('table.plain-table-ada508 th:contains(Surveys)').length>0;
+            var surveysIndex= $('table.plain-table-ada508 th:contains(Surveys)').index();
+			var hasMastery = $('table.plain-table-ada508 th:contains(Mastery)').length>0;
+            var masteryIndex = $('table.plain-table-ada508 th:contains(Mastery)').index();
+			var detailsIndex = $('table.plain-table-ada508 th:contains(Details)').index();
+			var accessibleIndex = $('table.plain-table-ada508 th:contains(Accessible)').index();
+			var size = $('table.plain-table-ada508 tr').size() - 1;
+			$('table.plain-table-ada508 tr').each(function (idx) {
+				if (idx !== 0 && idx < size) {
+					var localSurveys = hasSurveys ? $(this).children('*').eq(surveysIndex).text() !== '-' : false;
+					var localMastery = hasMastery ? $(this).children('*').eq((hasSurveys ? 7 : 6)).text() !== '-' : false;
+					var progress = $(this).children('*').eq(3).text();
+					var weighted = $(this).children('*').eq(4).text() == '-' ? '-' : $(this).children('*').eq(4).children('*').eq(0).children('*').eq(0).children('*').eq(0).text();
+					var raw = $(this).children('*').eq(5).text() == '-' ? '-' : $(this).children('*').eq(5).children('*').eq(0).children('*').eq(0).children('*').eq(0).text();
+					var surveys = localSurveys ? ($(this).children('*').eq(6).text() == '-' ? '-' : $(this).children('*').eq(6).children('*').eq(0).children('*').eq(0).children('*').eq(0).text()) : null;
+					var mastery = localMastery ? ($(this).children('*').eq(hasSurveys ? 7 : 6).text() == '-' ? '-' : $(this).children('*').eq(hasSurveys ? 7 : 6).children('*').eq(0).children('*').eq(0).children('*').eq(0).text()) : null;
+					var score = weighted != '-' ? weighted : (mastery ? mastery : (surveys ? surveys : (progress != '-' ? progress : raw)));
+					var nonAccessible = $(this).children('*').eq(0).children('*').eq(0).hasClass('textGrey') ? true : null;
+					content.push({
+						index: content.length || '0',
+						hasExtends: localMastery || localSurveys ? 0 : null,
+						name: $(this).children('*').eq(0).text(),
+						nonAccessible: nonAccessible,
+						type: $(this).children('*').eq(1).text(),
+						duedate: $(this).children('*').eq(2).text(),
+						score: score,
+						details: $(this).children('*').eq(detailsIndex).children('*').eq(0),
+						showWeighted: $(this).children('*').eq(4).text() != '-',
+						accessible: $(this).children('*').eq(accessibleIndex).text()
+					});
+				}
+			});
+			return content;
+		},
+		'forms': function(){
+			$('#page-content form').addClass('x-keep');
+			return $('#page-content form');
+		}
+	},
+
+	{
+		'templateName': 'gradebook',
+		'!gradebook': function(context) {
+			return $('#gradebook-tab') && $('.helpline');
+		},
+		'pagecontent': function() {
+			$('#page-content form').addClass('x-keep');
+			return $('#page-content');
+		},
+        
+        'replacenodata': function() {
+            if ($('.content-area-last table td b').text() == 'No students found.') {
+                 $('.content-area-last table td b').remove();
+                 $('.content-area-last table td').eq(0).html('<span class="gradebook-no-data">The gradebook has no progress data at this time.</span>');
+            }
+        },
+		'breadcrumb': function () {
+			return $('.breadcrumb');
+		},
+		'functionheadline': function() {
+			return $('div#modal').remove();
+		},
+        'studentlist': function() {
+            return $('iframe[name]:contains(instructorGbFrame)').addClass('.student-gradebook-wrapper');
+        },
+		'removeSource': function(){
+			return $('.input120').remove();
+		},
+		'removeAuthorTitle': function(){
+			return $('#authorTitle').remove();
+		},
+		'removeAllClasses': function() {
+			return $('option:contains(All Classes)').remove();
+		},
+		'removeAllMyClasses': function() {
+			return $('option:contains(All My Classes)').remove();
+		},
+		'removeGbButtons': function() {
+			$('.small-style').remove();
+		},
+		'removeSummaryByClass': function(){
+			return $('option:contains(Summary by Class Section)').remove();
+		},
+		'setPaginationToAll': function() {
+			$('#showPerPage').remove();
+			// if id attribute of "showPerPage" element is equal "showPerPage" then it will be disabled by logic of "Find Student" form
+			return $('#gbSettingsForm').append('<input type="hidden" name="showperpage" id="mobifyShowPerPage" value="all" />');
+		},
+        
+		'appendMobifyFlag': function () {
+			$('#gbSettingsForm').append('<input type="hidden" name="gbtype" id="gbtype" value="mobile" />');
+		},
+		'columns': function () {
+            $('#assignmentsSortBy').remove();
+            $('table').removeAttr('cellspacing').removeAttr('cellpadding').removeAttr('width').removeAttr('border');
+            $('td').removeAttr('colspan').removeAttr('width');
+            $('b:contains(Class)').remove()
+            $('b:contains(Assignment)').remove();
+			$('th').remove();
+            $('input #incTotal').removeAttr('disabled');
+            $('p:contains(Show per page:)').remove();
+            $('b:contains(Options)').remove();
+            $("td").each(function() {
+            var $this = $(this);
+            $this.html($this.html().replace(/&nbsp;/g, ''));
+            });
+            $('select #clsSelector').text('Please Select a Class');
+            $('td').removeAttr('class');
+		},
+        'studentSearch' : function(){
+         return $('.default200').removeAttr('disabled');
+		},
+		'removeMultiple':function (){
+		return $('form select').removeAttr('multiple');
+		}
+	},
+
+
+	{
+		'templateName': 'instructor_gradebook_student',
+		'!profile': function() {
+			return $('h3.ada508:contains(Results of)');
+		},
+		'results': function() {
+			return $('h3.ada508').text();
+		},
+		'breadcrumb': function() {
+			return $('.breadcrumb').eq(0);
+		},
+		'totalprogress': function() {
+			return $('table.plain-table tr:last-child td').eq(7).text();
+		},
+		'totalweighted': function() {
+			return $('table.plain-table tr:last-child td').eq(9).text();
+		},
+		'hastotalweighted': function() {
+			return $('table.plain-table tr:last-child td').eq(9).text() == "-\n							/\n							-" ? null : true;
+		},
+		'totalraw': function() {
+			return $('table.plain-table tr:last-child td').eq(11).text();
+		},
+		'totalsurveys': function() {
+			return $('table.plain-table tr:last-child td').eq(13).text();
+		},
+		'totalmastery': function() {
+			var hasSurveys = $('table.plain-table tr:last-child td').eq(13).text().search(/surveys/gi);
+			return $('table.plain-table tr:last-child td').eq((hasSurveys !== -1 ? 15 : 13)).text();
+		},
+		'hasSurveys': function() {
+			var hasSurveys = $('table.plain-table th').eq(13).text().search(/surveys/gi);
+			return hasSurveys == -1 ? null : 0;
+		},
+		'hasMastery': function() {
+			var hasSurveys = $('table.plain-table th').eq(13).text().search(/surveys/gi);
+			var hasMastery = $('table.plain-table th').eq((hasSurveys !== -1 ? 15 : 13)).text().search(/mastery/gi);
+			return hasMastery == -1 ? null : 0;
+		},
+		'hasExtends': function() {
+			var hasSurveys = $('table.plain-table th').eq(6).text().search(/surveys/gi);
+			var hasMastery = $('table.plain-table th').eq((hasSurveys !== -1 ? 15 : 13)).text().search(/mastery/gi);
+			return hasMastery == -1 && hasSurveys == -1 ? null : 0;
+		},
+		'assignments': function() {
+			var content = [];
+			var detailsIndex = 13;
+			var accessibleIndex = 15;
+			var hasSurveys = $('table.plain-table td').eq(13).text().search(/surveys/gi) !== -1;
+			var hasMastery = $('table.plain-table td').eq((hasSurveys ? 15 : 13)).text().search(/mastery/gi) !== -1;
+			var detailsIndex = hasSurveys ? (hasMastery ? 17 : 15) : (hasMastery ? 15 : 13);
+			var accessibleIndex = hasSurveys ? (hasMastery ? 19 : 17) : (hasMastery ? 17 : 15);
+			var size = $('table.plain-table tr').size() - 2;
+			$('table.plain-table tr').each(function (idx) {
+				if (idx !== 0 && idx < size && $(this).children('*').size() > 11) {
+					var localSurveys = hasSurveys ? $(this).children('*').eq(13).text() !== '-' : false;
+					var localMastery = hasMastery ? $(this).children('*').eq((hasSurveys ? 15 : 13)).text() !== '-' : false;
+					var progress = $(this).children('*').eq(7).text();
+					var weighted = $(this).children('*').eq(9).text() == '-' ? '-' : $(this).children('*').eq(9).children('*').eq(0).children('*').eq(0).children('*').eq(0).text();
+					var raw = $(this).children('*').eq(11).text() == '-' ? '-' : $(this).children('*').eq(11).children('*').eq(0).children('*').eq(0).children('*').eq(0).text();
+					var rawCssClass = $(this).children('*').eq(11).text() == '-' ? '-' : ($(this).children('*').eq(11).children('*').eq(0).children('*').eq(0).children('*').eq(0).hasClass('strike') ? 'strike' : '');
+					var surveys = localSurveys ? ($(this).children('*').eq(13).text() == '-' ? '-' : $(this).children('*').eq(13).children('*').eq(0).children('*').eq(0).children('*').eq(0).text()) : null;
+					var mastery = localMastery ? ($(this).children('*').eq(hasSurveys ? 15 : 13).text() == '-' ? '-' : $(this).children('*').eq(hasSurveys ? 15 : 13).children('*').eq(0).children('*').eq(0).children('*').eq(0).text()) : null;
+					var score = mastery ? mastery : (surveys ? surveys : (progress != '-' ? progress : raw));
+					var nonAccessible = $(this).children('*').eq(1).children('*').eq(0).hasClass('textGrey') ? true : null;
+					content.push({
+						index: content.length || '0',
+						hasExtends: localMastery || localSurveys ? 0 : null,
+						id: $(this).children('*').eq(1).text(),
+						name: $(this).children('*').eq(3).text(),
+						nonAccessible: nonAccessible,
+						href: $(this).children('*').eq(3).children('*').eq(0).attr('href'),
+						score: $.trim(score),
+						hasWeighted: weighted == '-' ? null : true,
+						weighted: $.trim(weighted),
+						rawCssClass: rawCssClass,
+						details: $(this).children('*').eq(detailsIndex).children('*').eq(0),
+						accessible: $(this).children('*').eq(accessibleIndex).text()
+					});
+				}
+			});
+			return content;
+		},
+		'forms': function(){
+			$('#page-content form').addClass('x-keep');
+			return $('#page-content form');
+		}
+	},
+       
+        { 
+            'templateName': 'courseLogin',
+            '!cLogin': function(context){
+				return $('#mwp-main-layout h1:contains(Log in)');
+            },
+            'courseinfo': function () {
+                return $('#mwp-class-informer');
+            },
+            'coursedetails': function() {
+                return $('.bottom-dashed').remove();
+            },
+            'login': function () {
+                return $('#mwp-first-login');
+            },  
+            'incorrectPasswordAlert':function(){
+                var x = $('div#mwp-errors p');
+                if (x.length > 1)
+                {
+                    window.alert('Your username or password was incorrect.');
+                }
+                else{
+                }
+            },
+            'removetext': function() {
+                $('p:contains(Please log in:)').remove();
+                $('p:contains(to complete your request.)').remove();
+            },
+            'form': function () {
+                $('#loginform').addClass('x-keep');
+                return $('#loginform');
+            }
+        },
+        
+        {
+            'templateName': 'mywileyplus',
+            '!mywileyplus': function() {
+                return $('h1:contains(My WileyPLUS)');
+            },
+            'user': function(){
+            $('.user form').addClass('x-keep');
+            return $('.user').remove();
+            },
+            'mycourses': function(){
+            return $('.my-wileyplus-container');
+            },
+            'tabs': function() {
+            return $('#tabs');
+            },
+            'items': function() {
+            return $('#my-listing-item');
+            }
+        },
+       
+	{
+      'templateName': 'login', 
       '!login': function(context){
-        return $('.middle-homepage-content');
+        return $('#basic');
       },
-        /*'loginForm': function(){
-            return $('.login-controls');},*/
-        
-        'loginForm': function(){
-            return $('#loginform');},
-        'loaderImage': function(){
-            return $('#loader-image').remove();},
-        'loginFormDelete': function(){
-            return $('#loginform').remove();},
-        'removeLoginText': function(){
-            return $('#login-label').remove();}
+        'loginarea': function () {
+            $('#searchForm').remove();
+            $('#login-label').remove();
+            $('#login-btn input').removeAttr('src').removeAttr('border').removeAttr('width').removeAttr('height');
+            $('.login-area form').addClass('x-keep');
+            $('form[name="login"]').addClass('x-keep');
+            return $('.login-area');
+        }
     },
-        
+       
+    {
+        'templateName': 'logoutlogin',
+        '!login': function (context) {
+            return $('#login-fb');
+        },
+        'logininfo': function() {
+            $('.home-large-fb-middle form').addClass('x-keep');
+            return $('.home-large-fb-middle');
+        }
+    },
+
     {
       'templateName': 'student_license_agreement',
       '!license': function(context){
-        return $('#page');
+        return $('h3.ada508:contains(License Agreement)');
+      },
+        'breadcrumb': function() {
+        return $('.breadcrumb');
       },
       'class_details': function() {
-        return $('.round-outer');
+        return $('#page-content');
       },
       'acceptlicense': function() {
         $('#acceptLicenseForm').addClass('x-keep');
         return $('#acceptLicenseForm');
       }
-    }
-    /*
+    },
+    {
+        'templateName': 'no_classes',
+        '!noclass': function(context) {
+            return $('.notification-text');
+        },
+        'form': function() {
+            return $('form').addClass('gone');
+        }
+    },
+        
+        
     {
       'templateName': 'student_view',
       '!studentview': function(context) {
-        return $('.ada508:contains(Choose Class Section)');
+        return $('h3.ada508:contains(Choose Class Section)');
       },
       'section_table': function() {
-        return $('.plain-table');
+        return $('.plain-table').removeClass();
       }
 
     }
-*/
+
 
 
     /*  // An example of another template object. Uncomment this block and change

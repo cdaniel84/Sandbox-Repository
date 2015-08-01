@@ -1,0 +1,52 @@
+{>base/}
+
+{<content}
+
+<div id="wrapper">
+{#content}
+{breadcrumb}
+<div id="CancelUpdate" style="margin-top:5%;">
+<a href="javascript:switchScreen('instructor/clsinfo/clsinfo_homepage.xml');" class="cancelbutton">
+  Cancel
+</a> 
+<a id="UpdateStudent" href="javascript:saveMessage('upload');">Update</a>
+</div>
+{pagecontent}
+<div id="CancelUpdate">
+<a href="javascript:switchScreen('instructor/clsinfo/clsinfo_homepage.xml');" class="cancelbutton">
+  Cancel
+</a> 
+<a id="UpdateStudent" href="javascript:saveMessage('upload');">Update</a>
+</div>
+{/content}
+<script>
+    try{
+    var x = $('table')[17];
+        x = x.children;
+        x = x[0].children;
+        xLength = x.length;
+        for (var i  = 0; i < x.length; i++)
+        {
+            
+            if (i == 0 || i == 1)
+            {
+                x[i].remove();
+            }
+            var y = x[i].children;
+            if (i >0){
+                y[2].remove();
+                $(y[0]).attr('class', 'sectionTitle');
+            }  
+            
+        }
+    $('#switch_s').after('<b class="editAnnounP">All Class Sections - Students</b></br></br></br>');
+    $('#switch_i').after('<b class="editAnnounP">All Class Sections - Instructors</b>');
+    $('input[name=msg_st]').after('<b class="editAnnounP">Display to Students</b></br></br></br><hr>');
+    $('input[name=msg_i]').after('<b class="editAnnounP">Display to Instructors</b>');
+        
+    }
+    catch(e){
+    }
+</script>
+</div>
+{/content}

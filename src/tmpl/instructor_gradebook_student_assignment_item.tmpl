@@ -1,0 +1,17 @@
+<tr>
+	<td class="gb-item">
+		<h5{?nonAccessible} class="textGrey"{/nonAccessible}><a href="{href}">{id}-{name}</a></h5>
+		<div>{details}</div>
+	</td>
+	<td class="gb-score">
+		<div class="gb-percent {rawCssClass}">
+			{score}
+		</div>
+		{?hasWeighted}
+		<div class="gb-weighted">
+			({weighted})
+		</div>
+		{/hasWeighted}
+	</td>
+</tr>
+

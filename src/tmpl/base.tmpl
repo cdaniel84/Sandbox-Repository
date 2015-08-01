@@ -57,18 +57,141 @@ Below is your base template file, which is extended by home.tmpl:
     {+head}
         {$head|innerHTML|s}
         <link rel="stylesheet" href="{config.configDir}style.css" />
-        <script type="text/javascript">
-            function testGoingToNon(){
-                var txt;
-                var r = confirm("Would you like to view Desktop Site?");
-                if (r == true) {
-                    Mobify.desktop();return false;
-                    } 
-                    else{
-                    }
-                }
-        </script>
+<!--Code libraries for pop up messages -->
+<link rel="stylesheet" href="{config.configDir}jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script>var $j = jQuery.noConflict();</script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+     <p id="mobify"></p>
+<!-- Script for Pop Up message to warn users the link will open in a new tab -->
 
+<script>
+    function sysNotifications(){
+        javascript:openAnnouncementMsgList('0', 'none', 0, 'thickbox-message-pointer-0');
+        removeExtra("System Announcements");  
+    }
+    function clsNotification(){
+        javascript:openAnnouncementMsgList('1', 'none', 0, 'thickbox-message-pointer-1');
+        removeExtra("Class Announcements");
+    }
+    function courseMaterialsNotification(){
+        javascript:openAnnouncementMsgList('2', 'none', 0, 'thickbox-message-pointer-2');
+        removeExtra("Course Materials");
+    }
+    function removeExtra(typeOfAnnouncement){
+        var x = typeOfAnnouncement.toString();
+        if ($('div.jqmOverlay').length == 1){
+            $('#announcementMsgListWindow').attr('style', 'width: 80%; display: block; float: left; margin-left: 6%; padding-bottom: 2%; border: 1px solid #d4d4d4; box-shadow: none;');
+            $('div.jqmOverlay').remove();
+            $('div.wp-popup-content header').remove(); 
+            $('#emailStudents').remove();
+            $('.announcement-list thead tr th:nth-child(3)').remove();
+            $('.announcement-list thead tr th:nth-child(2)').remove();
+            $('.a-center').replaceWith("<div class='announcementType'>" + typeOfAnnouncement + "</div>");
+        }
+        else{
+            setTimeout('removeExtra("' + x + '");',50);   
+        }
+    }
+</script>
+
+
+
+<!-- Warning Messages for links in Header and Footer to alert User they are leaving Mobify View -->
+<script type="text/javascript">
+    function helpAlert(){
+        var r = confirm("The following pages are not optimized for mobile view.");
+        if (r){
+            uni_help();
+        }
+        else{
+        }
+    }
+</script>
+
+<script type="text/javascript">
+    function contactUsAlert(){
+        var r = confirm("The following pages are not optimized for mobile view.");
+        if (r){
+            var win = window.open('http://catalog.wileyplus.com/contact.html', '_blank');
+            win.focus();
+        }
+        else{
+        }
+    }
+  
+</script>
+
+
+
+<script type="text/javascript">
+    function fullSiteAlert(){
+        var r = confirm("Do you wish to continue to the Desktop Site?");
+        if (r){
+            Mobify.desktop();
+            return false;
+        }
+        else{
+        }
+    }
+    function privacyPolicyAlert(){
+        var r = confirm("The following pages are not optimized for mobile view.");
+        if (r){
+            var win = window.open('http://www.wileyplus.com/go/privacy_policy', '_blank');
+            win.focus();}
+        else{
+        }
+    }
+    function licenseAgreementAlert(){
+        var r = confirm("The following pages are not optimized for mobile view.");
+        if (r){
+            var win = window.open('http://wpadmin.wileyplus.com/edugen/student/license/lic.uni', '_blank');
+            win.focus();}
+        else{
+        }
+    }
+    function copyrightAlert(){
+        var r = confirm("The following pages are not optimized for mobile view.");
+        if (r){
+            var win = window.open('http://www.wileyplus.com/go/copyright', '_blank');
+            win.focus();}
+        else{
+        }
+    }
+    function jwasAlert(){
+        var r = confirm("The following pages are not optimized for mobile view.");
+        if (r){
+            var win = window.open('http://www.wiley.com', '_blank');
+            win.focus();}
+        else{
+        }
+    }
+</script>
+
+<!-- Alerts users they are about to enter ORION, which has no Mobify template -->
+<script type="text/javascript">
+    function orionAlert(){
+        var user_type = m_role;
+        var r = confirm("The following pages are not optimized for mobile view.");
+        if (r == true){
+            if (user_type == "instructor") {
+                selectClassScreen('instructor/home/home_lti_class_select.xml', 'ORION', false, false, 'home', 'Available');
+            }
+            if (user_type == "student") {
+                openHomeToolProvider('ORION', 'snapwiz', '', 'Available' ,'/edugen');
+            }
+            else{
+            }
+        }
+        else{
+        }
+        
+    }
+</script>
+
+
+<!-- Script to warn users that the page they are going to is not designed for Mobile usage -->
         <script type="text/javascript">
             function nonMobile(pageName, pageType){
                 var temp ="javascript:switchAccess('";
@@ -84,15 +207,89 @@ Below is your base template file, which is extended by home.tmpl:
                     }
                 }
         </script>
-        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<!-- JS code to exclude Mobify from Production -->
+<script type="text/javascript">
+    var currentURL = window.location.host;
+    var parts = currentURL.split('.');
+    var sub = parts[0];
+    var edugen = "edugen";
+    var edugenQA = "edugen-qa";
+    var edugenSTG = "edugen-stg";
+    
+    if (sub == edgugenQA){
+        Mobify.desktop();
+    }
+    else if (sub == edugenSTG){
+        Mobify.desktop();
+    }
+    else{
+    }
+</script>
+<!-- Remove Orion from RSP -->
+<script>
+    function removeOrion(){
+        try{
+            var iframe = document.getElementById('lwsFrame');
+            var innerDoc = iframe.contentDocument;
+            var y = innerDoc.getElementsByClassName('word-break');
+            var z = y.length;
+            var k = '';
+            var orionLabel = '<h5 class="word-break">ORION: Build your Proficiency</h5>';
+            var x = innerDoc.getElementById('tool_ORION');
+            x.remove();
+            for(i = 0; i< z; i++)
+            {
+                k = y[i].outerHTML;
+                if (k == orionLabel) 
+                {
+                    y[i].remove();
+                    break;
+                }
+                else{
+                }
+            }
+        }
+        catch(e){
+        }
+    }
+</script>
+
+
+<!-- Script to only allow Instructors to be warned they are entering Assignment section since it has not been Mobified -->
+<script type="text/javascript">
+            function nonMobileAssignment(pageName, pageType){
+                var user_type = m_role;
+                var temp ="javascript:switchAccess('";
+                var temp1= "','";
+                var temp2 = "');";
+                var temp3 = temp + pageName + temp1 + pageType + temp2;
+                if (user_type == "instructor"){ 
+               		 var r = confirm("The following pages are not optimized for mobile view.");
+                if (r == true) {
+                    window.location.href=temp3;
+                    } 
+                    else{
+                    }
+                }
+                else{
+                    window.location.href=temp3;
+                }
+            }
+        </script>
+
+
+<!-- Source code for Flyout Menu usage -->
+       <!-- <script src="//code.jquery.com/jquery-1.10.2.min.js"></script> -->
+        <script src="{config.configDir}tmpl/pikabu.js"></script>
         <script src="//cdn.mobify.com/modules/pikabu/0.2.1/pikabu.min.js"></script>
 
-
+<!--Source code for Joyride implementation 
         <link rel="stylesheet" href="{config.configDir}joyride-2.1.css" />
         <script src="{config.configDir}jquery.joyride-2.1.js"></script>
         <script src="{config.configDir}jquery.cookie.js"></script>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     {/head}
 </head>
 {$body|openTag|s}
@@ -109,9 +306,9 @@ Below is your base template file, which is extended by home.tmpl:
         a matter of convention.
     !}
     {+body}
-        {+header}
-
-        {/header}
+{+header}
+{>_header/}
+{/header}
         {+content}
             {$body|innerHTML|s}
         {/content}
