@@ -190,6 +190,15 @@ Below is your base template file, which is extended by home.tmpl:
     }
 </script>
 
+<!-- JS to exclude LTI Apps -->
+<script type="text/javascript">
+    var isLTI = window.location.href.indexOf('lti');
+    if (isLTI > 0){
+        Mobify.desktop();
+    }
+    else{
+    }
+</script>
 
 <!-- Script to warn users that the page they are going to is not designed for Mobile usage -->
         <script type="text/javascript">

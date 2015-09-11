@@ -643,6 +643,7 @@
             }
         },
 		'breadcrumb': function () {
+            $('.function-headline').remove();
 			return $('.breadcrumb');
 		},
 		'functionheadline': function() {

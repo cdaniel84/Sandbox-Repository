@@ -12,18 +12,6 @@
     }
 </script>
 
-In base.tmpl:
-
-<!-- JS to exclude LTI Apps -->
-<script type="text/javascript">
-    var isLTI = window.location.href.indexOf('lti');
-    if (isLTI > 0){
-        Mobify.desktop();
-    }
-    else{
-    }
-</script>
-
 </head>
 <div id="wrapper">
 {#content}

@@ -15,6 +15,40 @@
   });
   </script>
     <div id="wrapper">
+<!-- Adding CSS changes to this specific template to avoid CSS conflict with these id and class names in other sections of WileyPLUS-->        
+    <style>        
+    .function-headline {
+        margin-top:-51px;
+        margin-left:-19px;
+    }
+    .breadcrumb b {
+        margin-left:5%;
+        }
+    #page-content span {
+        width:385px !important;
+    }
+        
+    @media screen and (max-width:320px) {
+        #page-content span {
+            width:320px !important;
+        }
+        
+        .small-style {
+            width:180px;
+            float:left;
+        }
+        
+        div[title="Update"] {
+            margin-left:50px;
+        }
+    }
+    
+    #wrapper a img {
+        margin-left:5px;
+    }
+        
+    </style>
+<!-- End of CSS Changes -->        
       {#content}
       {breadcrumb}
       {pagecontent}

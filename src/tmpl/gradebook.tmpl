@@ -3,11 +3,10 @@
 {%script}var mobifyUrl = '{config.configDir}';{/script}
 
 {<content}
-
-
     <div id="wrapper">
       {#content}
       {breadcrumb}
+<p class="function-headline" style="margin-top:0px; margin-left:0px;">Find Student(s)</p>
         <script>
     var bread = $('.breadcrumb b').text();
     if (bread == "Instructors"){
@@ -66,6 +65,9 @@ $('#gbSettingsForm > table > tbody > tr:nth-child(3) > td:nth-child(5)').after('
       {studentlist}
       {/content}
     </div>
-
-  
+<script>
+    var selectThing = $('#clsSelector');
+    var selectThingChildren = selectThing.children();
+    selectThingChildren[0].selected = true;
+</script>  
 {/content}

@@ -46,6 +46,17 @@
 				{#assignments}
 					{>instructor_gradebook_student_assignment_item/}
 				{/assignments}
+                  <script>
+                        var x = $('.gb-items').children();
+                        var y = x.children();
+                        var z = y .children();
+                        if (z.length == 0){
+                            $('.gb-items').after('The gradebook has no progress data at this time.');
+                            $('#sortingbuttons').style('display:none;');
+                        }
+                        else{
+                        }
+                    </script>
 			</table>
 			{forms}
 		{/content}

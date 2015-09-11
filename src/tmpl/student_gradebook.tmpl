@@ -45,11 +45,22 @@
                         </tr>
                     </table>
                 </div>
-                <table class="gb-items">
+              <table class="gb-items">
                     {#assignments}
                         {>student_gradebook_assignment_item/}
                     {/assignments}
+                    <script>
+                        var x = $('.gb-items').children();
+                        var y = x.children();
+                        var z = y .children();
+                        if (z.length == 0){
+                            $('.gb-items').after('The gradebook has no progress data at this time.');
+                        }
+                        else{
+                        }
+                    </script>
                 </table>
+
             {/noprogress}
 			{forms}
 		{/content}
