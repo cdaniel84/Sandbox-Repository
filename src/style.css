@@ -1314,7 +1314,7 @@ tr .label td {
 td[align="left"] span {
     border-bottom: 1px solid #d4d4d4;
     margin-left:-23px;
-    width:385px;
+    width:385px !important;
     text-indent:5px;
 }
 
@@ -1962,7 +1962,7 @@ div[title="Update"] {
 }
 
 div[title="Send E-mail"] {
-    margin-top:-200px;
+    margin-top:-209px;
     margin-left:158px;
     width:200px;    
 }
@@ -2016,11 +2016,13 @@ a #Refresh_Roster {
 
 input[id="statusActivated"] {
     margin-top:10px;
+    margin-left:5px;
 }
 
 input[id="statusDeactivated"] {
     margin-left:10px;
     margin-top:15px;
+    margin-bottom:10px;
 }
 
 /*End Student Profile*/
@@ -2788,7 +2790,7 @@ div[title="Add Document"] {
 td[align="left"] span {
     border-bottom: 1px solid #d4d4d4;
     margin-left:-18px;
-    width:320px;
+    width:320px !important;
 }    
 
 .function-headline {
@@ -2854,7 +2856,7 @@ select[name="end_hourformat"] {
 }
 
 
-@media (min-width:414px) {
+@media (min-width:414px) and (orientation:landscape) {
 .m-pikabu-left-visible .m-pikabu-container {
   -webkit-transform: translate3d(355px, 0, 0);
   -moz-transform: translate3d(355px, 0, 0);
@@ -2864,7 +2866,7 @@ select[name="end_hourformat"] {
 }
 }
 
-@media (min-width:480px) {
+@media (min-width:480px) amd (orientation:landscape) {
 .m-pikabu-left-visible .m-pikabu-container {
   -webkit-transform: translate3d(535px, 0, 0);
   -moz-transform: translate3d(535px, 0, 0);
